@@ -1,0 +1,68 @@
+<section id="ccr-left-section" class="col-md-8">
+
+  <div class="current-page">
+   <%= link_to home_index_path, id: 'link' do %>
+        <i class="fa fa-home"></i> <i class="fa fa-angle-double-right"></i>
+   <%end%>
+    <%= @category.name %>
+  </div> <!-- / .current-page -->
+
+  <section id="ccr-blog">
+    <% @articles.each_with_index do |article, i| %>
+        <% if i==0  %>
+            <div class="ccr-category-featured">
+              <div class="ccr-thumbnail">
+                <%= link_to home_article_path(article.id) do %>
+                    <img src="<%= image_path(article.image) %>" alt="Thumb" height="300px" width="150px">
+                <%end%>
+              </div>
+
+              <article>
+                <h4><%= link_to article.title, home_article_path(article.id) %></h4>
+                <%= article.description %>
+                <div class="meta-data">
+                <%= link_to home_article_path(article.id), class:"comments" do%>
+                      <i class="fa fa-comments-o"></i><%= article.comments.size.to_s %>
+                <% end %>
+                <span class="read-more">
+                  <%= link_to 'Read More',  home_article_path(article.id)%>
+                </span>
+                </div> <!-- /.like-comment-readmore -->
+              </article>
+            </div> <!-- /#ccr-category-featured -->
+        <% else%>
+            <article>
+              <figure class="blog-thumbnails">
+                <%= link_to home_article_path(article.id) do %>
+                    <img src="<%= image_path(article.image) %>" alt="Thumb">
+                <%end%>
+              </figure> <!-- /.blog-thumbnails -->
+              <div class="blog-text">
+                <h1><%= link_to article.title, home_article_path(article.id) %></h1>
+                <p>
+                    <%= article.description%>
+                </p>
+
+                <div class="meta-data">
+                  <%= link_to home_article_path(article.id), class:"comments" do%>
+                      <i class="fa fa-comments-o"></i><%= article.comments.where("status='Duyệt'").size.to_s %>
+                  <% end %>
+                  <span class="read-more">
+                    <%= link_to 'Read More',  home_article_path(article.id)%>
+                  </span>
+                </div>
+              </div> <!-- /.blog-text -->
+
+            </article>
+        <%end%><!-- if-else -->
+    <%end%><!-- articles loop -->
+
+    <div class="clearfix"></div>
+    <div class="flickr_pagination" >
+        <%= will_paginate @articles,:container => false %>
+    </div>
+
+
+  </section> <!-- /#ccr-blog -->
+</section><!-- /.col-md-8 / #ccr-left-section -->
+<%= render :partial => 'layouts/sidebar' %>

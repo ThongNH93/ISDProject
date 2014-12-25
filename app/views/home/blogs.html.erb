@@ -1,0 +1,69 @@
+<section id="ccr-left-section" class="col-md-8">
+
+  <div class="current-page">
+    <a href="index.html"><i class="fa fa-home"></i> <i class="fa fa-angle-double-right"></i></a> Blog 3
+  </div> <!-- / .current-page -->
+  <% if @blogs.present?%>
+    <%@blogs.each_with_index do |blog,i|%>
+        <%if i==0%>
+
+              <section id="ccr-blog-s3">
+                <ul class="blog-s3">
+                      <li>
+                        <article>
+                          <figure class="blog-thumbnails">
+                            <%= link_to home_blog_path(blog.id) do %>
+                                <img src=<%= image_path(blog.image) %> alt="ArticleImage"  height="200px" width="770px">
+                            <% end %>
+                          </figure> <!-- /.blog-thumbnails -->
+                          <div class="blog-text">
+                            <h4><%= link_to blog.title, home_blog_path(blog.id) %></h4>
+                            <p>
+                                <%= blog.description.html_safe %>
+                            </p>
+                            <div class="meta-data">
+                              <%= link_to  home_blogs_path(blog.id), class:"comments" do%>
+                                  <%= blog.comments.size.to_s+" " %><i class="fa fa-comments-o"></i>
+                              <% end %>
+                              <span class="read-more"><%= link_to "Read More", home_blog_path(blog.id)  %></span>
+                            </div>
+                          </div> <!-- /.blog-text -->
+                        </article>
+                      </li>
+                </ul>
+              </section> <!-- /#ccr-blog-s3 -->
+           <% else %>
+              <section id="ccr-blog">
+
+                <article>
+                  <figure class="blog-thumbnails">
+                    <%= link_to home_blog_path(blog.id) do %>
+                        <img src=<%= image_path(blog.image) %> alt="ArticleImage"  width="240px" height="160px">
+                    <% end %>
+                  </figure> <!-- /.blog-thumbnails -->
+                  <div class="blog-text">
+                    <h1><%= link_to blog.title, home_blog_path(blog.id) %></h1>
+                    <p>
+                        <%= blog.description %>
+                    </p>
+
+
+                    <div class="meta-data">
+                      <%= link_to  home_blogs_path(blog.id), class:"comments" do%>
+                          <%= blog.comments.size.to_s+" " %><i class="fa fa-comments-o"></i>
+                      <% end %>
+                      <span class="read-more"><%= link_to "Read More", home_blog_path(blog.id)  %></span>
+                    </div>
+                  </div> <!-- /.blog-text -->
+
+                </article>
+              </section>
+           <% end %>
+        <div class="clearfix"></div>
+    <% end %>
+  <% end %>
+  <div class="flickr_pagination" >
+    <%= will_paginate @blogs,:container => false %>
+  </div>
+</section><!-- /.col-md-8 / #ccr-left-section -->
+<%= render :partial => 'layouts/sidebar' %>

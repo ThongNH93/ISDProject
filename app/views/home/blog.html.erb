@@ -1,0 +1,100 @@
+<section id="ccr-left-section" class="col-md-8">
+
+  <div class="current-page">
+    <% link_to home_index_path do %>
+        <i class="fa fa-home"></i> <i class="fa fa-angle-double-right"></i></a> <a href="blog.html">Blog <i class="fa fa-angle-double-right"></i></a> Single
+    <% end %>
+  </div> <!-- / .current-page -->
+
+  <article id="ccr-article">
+    <h1><%= @blog.title %></h1>
+
+    <div class="article-like-comment-date">
+      Posted by <%= @blog.author %> on <%= @blog.created_at %>
+
+    </div> <!-- /.article-like-comment-date -->
+
+
+    <%= @blog.content.html_safe %>
+
+  </article> <!-- /#ccr-single-post -->
+
+
+  <section id="ccr-article-related-post">
+    <div class="ccr-gallery-ttile">
+      <span class="bottom"></span>
+      <p>Related Post</p>
+    </div> <!-- .ccr-gallery-ttile -->
+    <ul>
+      <% if @related_posts.present?
+           @related_posts.each do |blog| %>
+              <li>
+
+                <div class="ccr-thumbnail">
+                  <img src=<%= image_path(blog.image) %> alt="" width="200px" height="120px">
+                  <p><%= link_to 'Read More',home_blog_path(blog.id)%></p>
+                </div>
+                <h5><%= link_to blog.title, home_blog_path(blog.id) %></h5>
+              </li>
+          <% end%>
+      <% end %>
+    </ul>
+
+
+  </section> <!-- /#ccr-article-related-post -->
+
+  <section class="bottom-border"></section> <!-- /#bottom-border -->
+
+  <section id="ccr-commnet">
+    <div class="ccr-gallery-ttile">
+      <span class="bottom"></span>
+      <p>Comment</p>
+    </div> <!-- .ccr-gallery-ttile -->
+
+    <ol class="commentlist">
+      <li  class="comment">
+        <% if @comments.present?
+             @comments.each do |comment| %>
+                <article>
+                  <div class="comment-authore">
+                    <img src="img/avatar2.png" alt="Avatar">
+                    <%= comment.name %>
+                  </div>
+                  <div class="comment-content">
+                    <%= comment.content  %>
+                  </div>
+                  <div class="comment-meta"> <%= comment.created_at %></div>
+                </article>
+            <% end%>
+        <% end %>
+      </li> <!-- /.comment -->
+    </ol> <!-- /.commentlist -->
+
+
+
+  </section> <!-- /#ccr-commnet -->
+
+
+
+  <section class="bottom-border"></section> <!-- /#bottom-border -->
+
+  <section id="ccr-respond">
+    <div class="ccr-gallery-ttile">
+      <span class="bottom"></span>
+      <p>Post a Comment</p>
+    </div> <!-- .ccr-gallery-ttile -->
+    <div id="respond">
+      <%= form_for blog_comment_path(params[:id]),:required => true, id: 'commentform' do |f| %>
+          <%= f.text_field :name, placeholder:'Tên', id:'author', type:"text", :required => true%>
+          <%= f.text_field :email, placeholder:'Email', id:'email', type:'email', :required => true%>
+          <%= f.text_area :content, placeholder:'Bình luận', id:'comment', :required => true%>
+          <%= f.submit id:'submit',type:"submit",value:"Bình luận"  %>
+      <% end %>
+
+    </div> <!-- /#respond -->
+
+  </section> <!-- /#ccr-respond -->
+
+</section><!-- /.col-md-8 / #ccr-left-section -->
+
+<%= render :partial => 'layouts/sidebar' %>

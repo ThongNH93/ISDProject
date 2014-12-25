@@ -1,0 +1,7 @@
+<h3>Cập nhật trạng thái:</h3>
+<%= semantic_form_for admin_comments_update_status_path(params[:id]), method: :post do|f| %>
+    <%= f.input :status_id, :as => :select, :collection => ["Loại","Chờ duyệt","Duyệt"] %>
+    <%= f.actions do %>
+        <%= f.action :submit, :label => "Kiểm duyệt" %>
+    <% end %>
+<% end %>

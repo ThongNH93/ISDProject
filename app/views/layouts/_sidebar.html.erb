@@ -1,0 +1,99 @@
+<aside id="ccr-right-section" class="col-md-4 ccr-home">
+
+  <section id="sidebar-popular-post">
+    <div class="ccr-gallery-ttile">
+      <span></span>
+      <p><strong>Xem nhiều nhất</strong></p>
+    </div> <!-- .ccr-gallery-ttile -->
+    <ul>
+      <% if @popular_articles.present?
+            @popular_articles.each do |article| %>
+              <li>
+                <%= link_to home_article_path(article.id) do %>
+                    <img src="<%= image_path(article.image) %>" alt="Avatar" height="170px" width="100px">
+                <% end %>
+                <%= link_to article.title, home_article_path(article.id) %>
+                <div class="date-like-comment">
+                  <span class="date"><time datetime="2014-02-17"><%= article.created_at %></time></span>
+                  <%= link_to home_article_path(article.id),class: "comments" do %>
+                      <i class="fa fa-comments-o"></i><%= article.comments.where("status='Duyệt'").size.to_s %>
+                  <% end %>
+                  <!--<a class="comments" href="#"> 49</a>-->
+                </div>
+              </li>
+           <% end %>
+      <% elsif @popular_videos.present?
+            @popular_videos.each do |video|%>
+                  <li>
+                      <a class='youtube' href="http:<%= video.video%>">
+                        <img src=<%= image_path(video.image) %> alt="300x200"  height="170px" width="100px">
+                        <div class="caption">
+                          <!--<h6><a class='youtube' href="http://www.youtube.com/embed/VOJyrQa_WR4?rel=0&amp;wmode=transparent">Flash / Video (Iframe/Direct Link To YouTube)</a></h6>-->
+                          <h6><%= video.title %></h6>
+                        </div>
+                      </a>
+                      <div class="date-like-comment">
+                        <span class="date"><time datetime=""><%= video.created_at %></time></span>
+                      </div>
+                  </li>
+
+              </li>
+            <% end %>
+      <% elsif @popular_blogs.present?
+           @popular_blogs.each do |blog| %>
+              <li>
+                <%= link_to home_blog_path(blog.id) do %>
+                    <img src="<%= image_path(blog.image) %>" alt="Avatar"  height="170px" width="100px">
+                <% end %>
+                <%= link_to blog.title, home_blog_path(blog.id) %>
+                <div class="date-like-comment">
+                  <span class="date"><time datetime="2014-02-17"><%= blog.created_at %></time></span>
+                  <%= link_to home_blog_path(blog.id),class: "comments" do %>
+                      <i class="fa fa-comments-o"></i><%= blog.comments.where("status='Duyệt'").size.to_s %>
+                  <% end %>
+                  <!--<a class="comments" href="#"> 49</a>-->
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+    </ul>
+
+  </section> <!-- /#sidebar-popular-post -->
+
+  <section id="sidebar-video-post">
+    <div class="ccr-gallery-ttile">
+      <span></span>
+      <p><strong>Video Post</strong></p>
+    </div> <!-- .ccr-gallery-ttile -->
+
+    <div class="sidebar-video">
+      <% if @youtube_link.present?%>
+          <iframe width="320" height="195" src=<%=@youtube_link.video %> frameborder="0" allowfullscreen style="margin-left:-10px"></iframe>
+          <%= @youtube_link.title %>
+      <% end %>
+    </div>
+    <div class="date-like-comment">
+
+    </div>
+  </section>  <!-- /#sidebar-video-post -->
+  <section id="ccr-sidebar-add-place">
+    <div class="sidebar-add-place">
+      <% if @side_bar_1st.present?%>
+          <img src=<%= image_path(@side_bar_1st.image)%> alt="" width="370px" height="260px">
+      <%else%>
+          370x250 px
+      <%end%>
+    </div>
+  </section> <!-- /#ccr-sidebar-add-place -->
+
+  <section id="ccr-sidebar-add-place">
+    <div class="sidebar-add-place">
+      <% if @side_bar_2nd.present?%>
+          <img src=<%= image_path(@side_bar_1st.image)%> alt="" width="370px" height="260px">
+      <%else%>
+         370x250 px
+      <%end%>
+    </div>
+  </section> <!-- /#ccr-sidebar-add-place -->
+
+</aside><!-- / .col-md-4  / #ccr-right-section -->

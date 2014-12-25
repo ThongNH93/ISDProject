@@ -1,0 +1,9 @@
+<h3>Tác giả: <%= @video.author %></h3>
+<h3>Trạng thái: <%= @video.status.name %></h3>
+<h3>Cập nhật trạng thái:</h3>
+<%= semantic_form_for admin_videos_update_status_path(params[:id]), method: :post do|f| %>
+    <%= f.input :status_id, :as => :select, :collection => Status.all , label:false ,  include_blank: false %>
+    <%= f.actions do %>
+        <%= f.action :submit, :label => "Kiểm duyệt" %>
+    <% end %>
+<% end %>

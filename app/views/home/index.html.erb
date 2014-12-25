@@ -1,0 +1,157 @@
+
+<section id="ccr-left-section" class="col-md-8">
+
+
+<div class="ccr-last-update">
+  <div class="update-ribon">Tin nóng</div> <!-- /.update-ribon -->
+  <span class="update-ribon-right"></span> <!-- /.update-ribon-left -->
+
+  <div class="update-right-border"></div> <!-- /.update-right-border -->
+</div> <!-- / .ccr-last-update -->
+
+
+<section id="ccr-slide-main" class="carousel slide" data-ride="carousel">
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <% @hot_news.each.with_index do |new,index|
+       if(index==0)   %>
+            <div class="active item">
+              <div class="container slide-element" style="height: 436px; width: 770px">
+                <img src="<%= image_path(new.image) %>" alt="Main Slide Image 1" >
+                <p><%= link_to new.title, home_article_path(new.id) %></p>
+              </div> <!-- /.slide-element -->
+            </div> <!--/.active /.item -->
+       <% else %>
+            <div class="item">
+              <div class="container slide-element"   style="height: 436px; width: 770px">
+                <img src="<%= image_path(new.image) %>" alt="Main Slide Image 1">
+                <p><%= link_to new.title, home_article_path(new.id) %></p>
+              </div> <!-- /.slide-element -->
+            </div> <!--  /.item -->
+       <% end %>
+    <% end %>
+  </div>
+  <!-- slider nav -->
+  <a class="carousel-control left" href="#ccr-slide-main" data-slide="prev"><i class="fa fa-arrow-left"></i></a>
+  <a class="carousel-control right" href="#ccr-slide-main" data-slide="next"><i class="fa fa-arrow-right"></i></a>
+
+  <ol class="carousel-indicators">
+    <% @hot_news.each.with_index do |new,index|
+      if(index==0)   %>
+        <li data-target="#ccr-slide-main" data-slide-to="0" class="active"></li>
+      <% else %>
+        <li data-target="#ccr-slide-main" data-slide-to="1"></li>
+      <% end %>
+    <% end %>
+  </ol> <!-- /.carousel-indicators -->
+
+</section><!-- /#ccr-slide-main -->
+
+<section id="ccr-latest-post-gallery">
+  <div class="ccr-gallery-ttile">
+	<span></span>
+	<p>Mới cập nhật</p>
+  </div><!-- .ccr-gallery-ttile -->
+
+
+  <ul class="ccr-latest-post">
+    <% @latest_news.each do |new| %>
+	<li>
+	  <div class="ccr-thumbnail">
+		<img src="<%= image_path(new.image) %>" alt="Thumbnail 1" width="170px" height="120px">
+		<p><%= link_to 'Đọc thêm', home_article_path(new.id) %></p>
+	  </div>
+	  <h4><%= link_to new.title, home_article_path(new.id) %></h4>
+	</li>
+    <%end%>
+  </ul> <!-- /.ccr-latest-post -->
+
+</section> <!--  /#ccr-latest-post-gallery  -->
+
+<section class="bottom-border">
+</section> <!-- /#bottom-border -->
+
+<% @categories_articles.each do |category, articles|%><!-- /list of categories -->
+    <% @cssClass %>
+    <% if category.id.to_i%2==0
+         @cssClass="ccr-world-news"%>
+    <% else @cssClass="ccr-sports-gallery"%>
+    <% end %>
+
+    <section id=<%= @cssClass %>>
+        <div class="ccr-gallery-ttile">
+          <span></span>
+          <p><%= link_to category.name, home_articles_path(category.id) %></p>
+        </div><!-- .ccr-gallery-ttile -->
+	<% articles.each_with_index do |article, i|%><!-- /list of articles in a category -->
+        <% if category.id.to_i%2==0%>
+          <% if i==0 %>
+
+          <section class="featured-world-news">
+                <div class="featured-world-news-img">
+                  <%= link_to home_article_path(article.id) do %>
+                      <img src="<%= image_path(article.image) %>" alt="Thumb" height="222px" width="340px">
+                  <% end %>
+                </div>
+                <div class="featured-world-news-post">
+                  <h5><%= link_to article.title, home_article_path(article.id) %></h5>
+                  <%= article.description %>
+                  <div class="like-comment-readmore">
+                    <i class="fa fa-thumbs-o-up"> 08</i>
+                    <a href="#" class="comments"><i class="fa fa-comments-o"></i> 49</a>
+                    <div class="read-more"><%= link_to 'Read More', home_article_path(article.id) %> </div>
+                  </div> <!-- /.like-comment-readmore -->
+                </div>
+          </section> <!-- /#featured-world-news -->
+         <% else %>
+               <ul>
+				<li>
+				  <div class="ccr-thumbnail">
+					<img src="<%= image_path(article.image) %>" alt="Thumb" height="100px" width="170px">
+					<p><%= link_to 'Read More', home_article_path(article.id) %></p>
+				  </div>
+				  <h5><%= link_to article.title, home_article_path(article.id) %></h5>
+				</li>
+               </ul>
+		  <% end %> <!-- i if-else -->
+         <!--</section>-->
+	    <%else if category.id.to_i%2!=0%>
+
+        <% if i==0 %>
+          <section class="featured-sports-news">
+            <div class="featured-sports-newss-img">
+              <%= link_to home_article_path(article.id) do %>
+                <img src="<%= image_path(article.image) %>" alt="Thumb" height="222px" width="340px">
+              <% end %>
+            </div>
+            <div class="featured-sports-news-post">
+              <h5><%= link_to article.title, home_article_path(article.id) %></h5>
+              <%= article.description %>
+              <div class="like-comment-readmore">
+                <a href="#" class="comments"><i class="fa fa-comments-o"></i> 49</a>
+                <%= link_to 'Read More', home_article_path(article.id) %>
+              </div> <!-- /.like-comment-readmore -->
+            </div>
+          </section> <!-- /#featured-sports-news -->
+        <%else%>
+          <ul>
+            <li>
+              <div class="ccr-thumbnail">
+                <img src="<%= image_path(article.image) %>" alt="Thumb" height="100px" width="170px">
+                <p><%= link_to 'Read More', home_article_path(article.id) %></p>
+              </div>
+              <h5><%= link_to article.title, home_article_path(article.id) %></h5>
+            </li>
+          </ul>
+        <% end %> <!-- i if-else -->
+
+        <% end %> <!-- index if-else -->
+      <%end %> <!-- item loop -->
+   <% end %><!-- /list of articles in a category -->
+   </section>
+   <section class="bottom-border"></section>
+<%end %><!-- /list of categories -->
+</section><!-- /.col-md-8 / #ccr-left-section -->
+<%= render :partial => 'layouts/sidebar' %>
+

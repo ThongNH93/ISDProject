@@ -1,0 +1,7 @@
+<h3>Cập nhật trạng thái:</h3>
+<%= semantic_form_for admin_bloggers_update_status_path(params[:id]), method: :post do|f| %>
+    <%= f.input :active, :as => :select, :collection => ["Active", "Deactive"], label: false,include_blank: false %>
+    <%= f.actions do %>
+        <%= f.action :submit, :label => "Kiểm duyệt" %>
+    <% end %>
+<% end %>

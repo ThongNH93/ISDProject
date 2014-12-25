@@ -1,0 +1,9 @@
+<h3>Tác giả: <%= @blog.author %></h3>
+<h3>Trạng thái: <%= @blog.status %></h3>
+<h3>Cập nhật trạng thái:</h3>
+<%= semantic_form_for admin_blogs_update_status_path(params[:id]), label: false, method: :post do|f| %>
+    <%= f.input :status, :as => :select, selected: @blog.status, :collection => ["Loại","Chờ duyệt","Duyệt"], label: false %>
+    <%= f.actions do %>
+        <%= f.action :submit, :label => "Kiểm duyệt" %>
+    <% end %>
+<% end %>

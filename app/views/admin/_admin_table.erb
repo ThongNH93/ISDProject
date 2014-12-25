@@ -1,0 +1,59 @@
+<% if articles.present? %>
+    <div class="panel">
+      <h3>Danh sách bài viết đã đăng</h3>
+      <div class="panel_contents">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <thead>
+          <tr>
+            <th class="col col-stt">STT</th>
+            <th class="col col-v_tri">Tiêu đề</th>
+            <th class="col col-ngay_h_t_h_n">Trạng thái</th>
+            <th class="col col-ngay_b_t_d_u">Ngày đăng</th>
+          </tr>
+          </thead>
+          <tbody>
+
+            <% articles.each do |article| %>
+                <tr>
+                    <td><%=link_to article.id, admin_article_path(article.id)  %></td>
+                    <td><%= article.title  %></td>
+                    <td><%= article.status.name  %></td>
+                    <td><%=article.created_at  %></td>
+                </tr>
+            <% end %>
+          </tbody>
+          <%= paginate articles  %>
+        </table>
+      </div>
+    </div>
+<% end %>
+
+<% if videos.present? %>
+
+    <div class="panel">
+      <h3>Danh sách video đã đăng</h3>
+      <div class="panel_contents">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <thead>
+          <tr>
+            <th class="col col-stt">STT</th>
+            <th class="col col-v_tri">Tiêu đề</th>
+            <th class="col col-ngay_h_t_h_n">Trạng thái</th>
+            <th class="col col-ngay_b_t_d_u">Ngày đăng</th>
+          </tr>
+          </thead>
+          <tbody>
+              <% videos.each do |video| %>
+                  <tr>
+                    <td><%=link_to video.id, admin_article_path(video.id)  %></td>
+                    <td><%= video.title  %></td>
+                    <td><%= video.status.name  %></td>
+                    <td><%=video.created_at  %></td>
+                  </tr>
+              <% end %>
+          </tbody>
+          <%= paginate articles  %>
+        </table>
+      </div>
+    </div>
+<% end %>
