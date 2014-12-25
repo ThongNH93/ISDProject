@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  location_id: 1
+  expired_date: 2014-12-08 21:25:21
+  cost: 1.5
+  image: MyString
+
+two:
+  customer_id: 1
+  location_id: 1
+  expired_date: 2014-12-08 21:25:21
+  cost: 1.5
+  image: MyString
