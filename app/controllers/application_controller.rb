@@ -9,5 +9,10 @@ class ApplicationController < ActionController::Base
   def user_for_paper_trail
     admin_user_signed_in? ? current_admin_user : 'Unknown user'
   end
+  before_action :set_categories
+  def set_categories
+    @categories=Category.all
+  end
+
 
 end

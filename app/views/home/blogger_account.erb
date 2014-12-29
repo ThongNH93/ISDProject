@@ -1581,38 +1581,171 @@
 <div class="col-md-8">
   <div class="main">
     <div class="profi-cat-left"><br>
-      <a class="title_tabs_a active" href="http://www.hayhaytv.vn/user/profile">Ua thích</a>
-      <a class="title_tabs_a " href="http://www.hayhaytv.vn/user/profile_viewed">Ðã xem</a>
-      <a class="title_tabs_a " href="http://www.hayhaytv.vn/user/profile_view">Ðang xem</a>
-      <a class="title_tabs_a " href="javascript:void(0)">Xem sau</a>
-      <a class="title_tabs_a " href="http://www.hayhaytv.vn/user/profile_message">Inbox</a>
-      <br class="clear_both"><br class="clear_both"><br class="clear_both">
-      <h1 class="title_h1_st1"> <a href="javascript:;">PHIM L?</a> </h1>
-      <br class="clear_both">
-      <div id="colDivFavourite">
-        <div class="list_category-child">
-          D? li?u phim ua thích chua có
+
+      <% if flash[:alert]  %>
+          <div class="alert alert-info alert-dismissable">
+            <a class="panel-close close" data-dismiss="success">×</a>
+            <p class="success" style="color: red"><%= alert %></p>
+          </div>
+      <% end %>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li class="active" role="presentation"><a href="#all_blogs" role="tab" data-toggle="tab">Tất cả</a></li>
+        <li><a href="#new_blogs" role="tab" data-toggle="tab">Mới đăng</a></li>
+        <li><a href="#approved_blogs" role="tab" data-toggle="tab">Đã duyệt</a></li>
+        <li><a href="#unapproved_blos" role="tab" data-toggle="tab">Chờ duyệt</a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="all_blogs">
+          <% if @all_blogs.present?%>
+              <%@all_blogs.each_with_index do |blog,i|%>
+                  <!--<div class="tab_cont" id="tabs_new_posts">-->
+                  <section id="ccr-blog" >
+                      <article>
+                          <figure class="blog-thumbnails">
+                          <%= link_to home_blog_path(blog.id) do %>
+                              <img src=<%= image_path(blog.image) %> alt="ArticleImage"  width="240px" height="160px">
+                              <% end %>
+                          </figure> <!-- /.blog-thumbnails -->
+                          <div class="blog-text">
+                              <h1><%= link_to blog.title, home_blog_path(blog.id) %></h1>
+                              <p>
+                                <%= blog.description %>
+                              </p>
+
+                              <div>
+                                <%= blog.created_at%>
+                              </div>
+                              <div class="meta-data">
+                              <%= link_to  home_blogs_path(blog.id), class:"comments" do%>
+                                  <%= blog.comments.size.to_s+" " %><i class="fa fa-comments-o"></i>
+                              <% end %>
+                              <span class="read-more"><%= link_to "Chỉnh sửa", home_blogger_edit_article_path(blog.id)  %></span>
+                              <span class="read-more"><%= link_to "Đọc thêm", home_blogger_view_blog_path(blog.id)  %></span>
+                          </div>
+                      </div> <!-- /.blog-text -->
+
+                      </article>
+                  </section>
+              <% end %>
+          <%end %>
         </div>
-      </div>
-      <!--/////////////////////////////-->
-      <div class="w960_h20 clear_both"></div>
-      <h1 class="title_h1_st1"><a href="javascript:;">PHIM B?</a></h1>
-      <br class="clear_both">
-      <div id="allDivFavourite">
-        <div class="list_category-child">
-          D? li?u phim ua thích chua có
+        <div class="tab-pane" id="new_blogs">
+          <% if @new_blogs.present?%>
+              <%@new_blogs.each_with_index do |blog,i|%>
+                  <!--<div class="tab_cont" id="tabs_new_posts">-->
+                  <section id="ccr-blog" >
+                    <article>
+                      <figure class="blog-thumbnails">
+                        <%= link_to home_blog_path(blog.id) do %>
+                            <img src=<%= image_path(blog.image) %> alt="ArticleImage"  width="240px" height="160px">
+                        <% end %>
+                      </figure> <!-- /.blog-thumbnails -->
+                      <div class="blog-text">
+                        <h1><%= link_to blog.title, home_blog_path(blog.id) %></h1>
+                        <p>
+                          <%= blog.description %>
+                        </p>
+
+                        <div>
+                          <%= blog.created_at%>
+                        </div>
+                        <div class="meta-data">
+                          <%= link_to  home_blogs_path(blog.id), class:"comments" do%>
+                              <%= blog.comments.size.to_s+" " %><i class="fa fa-comments-o"></i>
+                          <% end %>
+                          <span class="read-more"><%= link_to "Chỉnh sửa", home_blogger_edit_article_path(blog.id)  %></span>
+                          <span class="read-more"><%= link_to "Đọc thêm", home_blogger_view_blog_path(blog.id)  %></span>
+                        </div>
+                      </div> <!-- /.blog-text -->
+
+                    </article>
+                  </section>
+              <% end %>
+          <%end %>
         </div>
+        <div class="tab-pane" id="approved_blogs">
+          <% if @approved_blogs.present?%>
+              <%@approved_blogs.each_with_index do |blog,i|%>
+                  <!--<div class="tab_cont" id="tabs_new_posts">-->
+                  <section id="ccr-blog" >
+                    <article>
+                      <figure class="blog-thumbnails">
+                        <%= link_to home_blog_path(blog.id) do %>
+                            <img src=<%= image_path(blog.image) %> alt="ArticleImage"  width="240px" height="160px">
+                        <% end %>
+                      </figure> <!-- /.blog-thumbnails -->
+                      <div class="blog-text">
+                        <h1><%= link_to blog.title, home_blog_path(blog.id) %></h1>
+                        <p>
+                          <%= blog.description %>
+                        </p>
+
+                        <div>
+                          <%= blog.created_at%>
+                        </div>
+                        <div class="meta-data">
+                          <%= link_to  home_blogs_path(blog.id), class:"comments" do%>
+                              <%= blog.comments.size.to_s+" " %><i class="fa fa-comments-o"></i>
+                          <% end %>
+                          <span class="read-more"><%= link_to "Chỉnh sửa", home_blogger_edit_article_path(blog.id)  %></span>
+                          <span class="read-more"><%= link_to "Đọc thêm", home_blogger_view_blog_path(blog.id)  %></span>
+                        </div>
+                      </div> <!-- /.blog-text -->
+
+                    </article>
+                  </section>
+              <% end %>
+          <%end %>
+        </div>
+        <div class="tab-pane" id="unapproved_blos">
+          <% if @unapproved_blogs.present?%>
+              <%@unapproved_blogs.each_with_index do |blog,i|%>
+                  <!--<div class="tab_cont" id="tabs_new_posts">-->
+                  <section id="ccr-blog" >
+                    <article>
+                      <figure class="blog-thumbnails">
+                        <%= link_to home_blog_path(blog.id) do %>
+                            <img src=<%= image_path(blog.image) %> alt="ArticleImage"  width="240px" height="160px">
+                        <% end %>
+                      </figure> <!-- /.blog-thumbnails -->
+                      <div class="blog-text">
+                        <h1><%= link_to blog.title, home_blog_path(blog.id) %></h1>
+                        <p>
+                          <%= blog.description %>
+                        </p>
+
+                        <p>
+                          <%= blog.created_at%>
+                        </p>
+                        <div class="meta-data">
+                          <%= link_to  home_blogs_path(blog.id), class:"comments" do%>
+                              <%= blog.comments.size.to_s+" " %><i class="fa fa-comments-o"></i>
+                          <% end %>
+                          <span class="read-more"><%= link_to "Chỉnh sửa", home_blogger_edit_article_path(blog.id)  %></span>
+                          <span class="read-more"><%= link_to "Đọc thêm", home_blogger_view_blog_path(blog.id)  %></span>
+                        </div>
+                      </div> <!-- /.blog-text -->
+
+                    </article>
+                  </section>
+              <% end %>
+          <%end %>
+        </div>
+       <!--</div>-->
       </div>
-      <!--<div class="comment-review-box">
-              <a class="title_tabs_a" href="javascript:void(0)">COMMENT</a>
-          <a class="title_tabs_a" href="javascript:void(0)">REVIEW</a>
-      </div>-->
+
+      <div class="flickr_pagination" >
+        <%= will_paginate @all_blogs,:container => false %>
+      </div>
+
     </div>
 
     <div class="profi-cat-right">
-      <h1 class="title_h1_st2">Kick</h1>
+      <h1 class="title_h1_st2"><%= @blogger.first_name.present?? @blogger.first_name.to_s.concat(" "+@blogger.last_name) : "Chưa có thông tin"%></h1>
       <div class="avatar-box-sty">
-        <img src="Dang%20nhap_files/avatar-no-image.png" height="185" width="185">
+        <img src=<%= image_path(@blogger.profile_image) %> height="185" width="185">
       </div>
 
       <script type="text/javascript">
@@ -1630,26 +1763,18 @@
               })
           }
       </script>
-      <div class="social-icon-div">
-        <a id="facebook_unsync" title="Hủy kết nói tài khoản với Facebook" class="fb-icon active" onclick='UnSyncSocialNetwork("huangfuanh@yahoo.com","facebook")'></a>
-        <a id="yahoo_unsync" title="Kết nối tài khoản với Yahoo" class="tw-icon " href="http://www.hayhaytv.vn/yahoo"></a> 	<a id="google_unsync" title="Kết nối tài khoản với Google Plus" class="gg-icon " href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;redirect_uri=http%3A%2F%2Fwww.hayhaytv.vn%2Findex.php&amp;client_id=1072878399715-180d1lcf46k175n2emba67onb3kuo6td.apps.googleusercontent.com&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.login+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&amp;access_type=offline&amp;approval_prompt=force"></a>
 
-        <!--a class="yh-icon " href="javascript:void(0)"></a-->
-
-      </div>
-      <script type="text/javascript">
-          function alertGoogle() {
-              alert("Chức năng mời bạn bè trên Google đang xây dựng");
-          }
-      </script>
-      <ul class="info_user-cat-ul">
+      <ul class="info_user-cat-ul" style="margin-left: 60px">
         <li>&nbsp;</li>
-        <li>Thành viên từ: <span>08-06-2013</span> </li>
-        <li>Giới tính: <span> Nam</span></li>
+        <li>Thành viên từ: <span><%= @blogger.created_at.to_date %></span> </li>
+        <li>Email: <span><%= @blogger.email%></span></li>
+        <li>Giới tính: <span> <%= @blogger.gender.present?? @blogger.gender : "Chưa có " %></span></li>
+        <li>Địa chỉ: <span> <%= @blogger.address.present?? @blogger.address : "Chưa có " %></span></li>
+        <li>Số điện thoại: <span><%= @blogger.phone.present?? @blogger.phone : "Chưa có " %></span></li>
         <li>&nbsp;</li>
-        <li><%= link_to "Cập nhật thông tin cá nhân", edit_blogger_registration_path(1) %></li>
-        <li><%= link_to "Thay đổi mật khẩu", edit_blogger_password_path%></a></li>
-        <li><%= link_to "Đăng bài", blogger_upload_article_path%></li>
+        <li><%= link_to "Cập nhật thông tin cá nhân",edit_blogger_registration_path  %></li>
+        <li><%= link_to "Thay đổi mật khẩu", home_blogger_change_password_form_path %></a></li>
+        <li><%= link_to "Đăng bài", home_blogger_upload_article_form_path%></li>
 
       </ul>
 

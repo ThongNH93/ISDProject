@@ -26,7 +26,6 @@ class HomeController < ApplicationController
 
      end
    end
-
   def articles
     begin
       approved_priority=Status.find_by(:name => "Duyệt").priority
@@ -40,7 +39,6 @@ class HomeController < ApplicationController
     rescue
     end
   end
-
   def article
     begin
 
@@ -71,10 +69,6 @@ class HomeController < ApplicationController
         end
       end
 
-      # top_location=AdLocation.find_by("name = 'Top - Trang chi tiết báo'")
-      # side_bar_location=AdLocation.find_by("name = 'Sidebar - Trang chi tiết báo'")
-      # @top_ad=top_location.ad_order
-      # @side_bar=side_bar_location.ad_order
       @side_bar_1st=AdLocation.find_by("name = 'Sidebar 1st - Trang chi tiết báo'").ad_order
       @side_bar_2nd=AdLocation.find_by("name = 'Sidebar 2nd - Trang chi tiết báo'").ad_order
     rescue
@@ -144,11 +138,6 @@ class HomeController < ApplicationController
        end
      end
 
-     # top_location=AdLocation.find_by("name = 'Top - Trang chi tiết blog'")
-     # side_bar_location=AdLocation.find_by("name = 'Sidebar - Trang chi tiết blog'")
-     # @top_ad=top_location.ad_order
-     # @side_bar=side_bar_location.ad_order
-
      @side_bar_1st=AdLocation.find_by("name = 'Sidebar 1st - Trang chi tiết blog'").ad_order
      @side_bar_2nd=AdLocation.find_by("name = 'Sidebar 2nd - Trang chi tiết blog'").ad_order
    end
@@ -197,7 +186,6 @@ class HomeController < ApplicationController
     end
     render "home/videos"
   end
-
   def videos
     approved_priority=Status.find_by(:name => "Duyệt").priority
     category=Category.find(params[:id])
@@ -207,9 +195,8 @@ class HomeController < ApplicationController
     @side_bar_1st=AdLocation.find_by("name = 'Sidebar 1st - Trang danh sách video'").ad_order
     @side_bar_2nd=AdLocation.find_by("name = 'Sidebar 2nd - Trang danh sách video'").ad_order
   end
-
   def search
-    # raise(params[:search])
+    raise(params[:search])
     @search = Sunspot.search(Article) do
     # @search= Article.solr_search do
       # fulltext params[:search]
@@ -221,25 +208,119 @@ class HomeController < ApplicationController
     render 'home/search_result_page'
   end
 
-  def about
-
+  def blogger_view_blog
+    @blogger=Blogger.find(current_blogger.id)
+    @blog=Blog.find(params[:id])
   end
-
   def blogger_account
+    @blogger=Blogger.find(params[:id])
+    @all_blogs=@blogger.blogs.joins(:views_statistics).where(:blogger_id => @blogger.id).order("views_statistics.views DESC").paginate(:page => params[:page], :per_page => 7).uniq
+    @new_blogs=@blogger.blogs.where(:blogger_id => @blogger.id).order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
+    @approved_blogs=@blogger.blogs.where(:blogger_id => @blogger.id).where(:status=> 'Duyệt').order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
+    @unapproved_blogs=@blogger.blogs.where(:blogger_id => @blogger.id).where(:status=> 'Chờ duyệt').order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
 
+    @current_tab="TẤT CẢ"
   end
-
+  def blogger_upload_article_form
+    @blog= Blog.create
+  end
   def blogger_upload_article
+    @blogger=Blogger.find(params[:id])
+    begin
+      id = params[:id]
+      image = params['/home/blogger/' + params[:id]+"/upload"][:image]
+      title = params['/home/blogger/' + params[:id]+"/upload"][:title]
+      author= params['/home/blogger/' + params[:id]+"/upload"][:author]
+      description= params['/home/blogger/' + params[:id]+"/upload"][:description]
+      content= params[:content]
 
+      if content.present?
+        @blog =Blog.create
+        @blog.update(image: image)
+        @blog.update(title: title)
+        @blog.update(author: author)
+        @blog.update(description: description)
+        @blog.update(content: content)
+        @blog.update(status: 'Chờ duyệt')
+        @blog.update(blogger_id: @blogger.id)
+        @blog.save!
+        flash[:success] = 'Bạn đã đăng 1 bài viết!'
+        redirect_to home_blogger_account_path(current_blogger.id)
+      else
+        flash[:alert] ='Nội dung bài viết bị trống!'
+        redirect_to home_blogger_upload_article_form_path
+      end
+
+    rescue Exception => exc
+      flash[:alert] = exc.message
+      redirect_to home_blogger_upload_article_form_path
+    end
   end
-
+  def blogger_edit_article_form
+   @blog= Blog.find(params[:id])
+ end
   def blogger_edit_article
+   @blogger=Blogger.find(params[:id])
+   begin
+     id = params[:id]
+     image = params['/home/blogger/' + params[:id]+"/edit_article"][:image]
+     title = params['/home/blogger/' + params[:id]+"/edit_article"][:title]
+     author= params['/home/blogger/' + params[:id]+"/edit_article"][:author]
+     description= params['/home/blogger/' + params[:id]+"/edit_article"][:description]
+     content= params[:content]
 
+     if content.present?
+       @blog =Blog.find(params[:id])
+       @blog.update(image: image)
+       @blog.update(title: title)
+       @blog.update(author: author)
+       @blog.update(description: description)
+       @blog.update(content: content)
+       @blog.update(status: 'Chờ duyệt')
+       @blog.save!
+       flash[:success] = 'Bạn đã đăng 1 bài viết!'
+       redirect_to home_blogger_account_path(current_blogger.id)
+     else
+       flash[:alert] ='Nội dung bài viết bị trống!'
+       redirect_to home_blogger_edit_article_form_path, data: @blog
+     end
+
+   rescue Exception => exc
+     flash[:alert] = exc.message
+     redirect_to home_blogger_edit_article_form_path
+   end
+ end
+  def blogger_change_password_form
+    @blogger=Blogger.find(params[:id])
   end
+  def blogger_change_password
+    # # params.require(:blogger).permit(:first_name, :last_name, :email,:address,:phone,:gender,:profile_image)
+    # raise(params.require(:blogger).permit(:password).to_s)
+      @blogger=Blogger.find(params[:id])
+     begin
+       id = params[:id]
+       password = params['/home/blogger/' + params[:id]+"/change_password"][:password]
+       confirm_password= params['/home/blogger/' + params[:id]+"/change_password"][:password_confirmation]
+       # current_password=params['/home/blogger/' + params[:id]+"/change_password"][:current_password]
+       if password.eql?(confirm_password)
+         @blogger.update_attribute(:password,password)
+         @blogger.save!
+         flash[:alert] = 'Đổi mật khẩu thành công'
+         redirect_to home_blogger_account_path(id)
+       else
+
+         flash[:alert] ='Mật khẩu xác nhận không đúng'
+         redirect_to home_blogger_change_password_form_path
+        end
+
+     rescue
+       flash[:alert] ='Mật khẩu phải dài hơn 4 kí tự'
+       redirect_to home_blogger_change_password_form_path
+     end
+   end
 
   def rss_page
   end
-
   def category_rss
     approved_priority=Status.find_by(:name => "Duyệt").priority
 
@@ -248,11 +329,13 @@ class HomeController < ApplicationController
     @blogs = Blog.all.where(:status => "Duyệt").order(:created_at)
     render :template => 'home/category_rss.xml.builder',layout: false
   end
-
   def blog_rss
     @blogs =Blog.all.where(:status => "Duyệt").order(:created_at)
     render :template => 'home/category_rss.xml.builder',layout: false
   end
+  def about
+
+   end
 
   private
 # # Use callbacks to share common setup or constraints between actions.

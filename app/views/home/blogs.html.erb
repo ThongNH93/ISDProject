@@ -21,6 +21,9 @@
                             <p>
                                 <%= blog.description.html_safe %>
                             </p>
+                            <p>
+                              <%= blog.created_at%>
+                            </p>
                             <div class="meta-data">
                               <%= link_to  home_blogs_path(blog.id), class:"comments" do%>
                                   <%= blog.comments.size.to_s+" " %><i class="fa fa-comments-o"></i>
@@ -45,6 +48,9 @@
                     <h1><%= link_to blog.title, home_blog_path(blog.id) %></h1>
                     <p>
                         <%= blog.description %>
+                    </p>
+                    <p>
+                      <%= blog.created_at%>
                     </p>
 
 

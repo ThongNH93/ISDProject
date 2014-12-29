@@ -3,11 +3,11 @@
 
 
 <div class="ccr-last-update">
-  <div class="update-ribon">Tin nóng</div> <!-- /.update-ribon -->
-  <span class="update-ribon-right"></span> <!-- /.update-ribon-left -->
+  <div class="update-ribon">Tin nóng</div> <!-- /.change_password-ribon -->
+  <span class="update-ribon-right"></span> <!-- /.change_password-ribon-left -->
 
-  <div class="update-right-border"></div> <!-- /.update-right-border -->
-</div> <!-- / .ccr-last-update -->
+  <div class="update-right-border"></div> <!-- /.change_password-right-border -->
+</div> <!-- / .ccr-last-change_password -->
 
 
 <section id="ccr-slide-main" class="carousel slide" data-ride="carousel">
@@ -97,6 +97,9 @@
                 <div class="featured-world-news-post">
                   <h5><%= link_to article.title, home_article_path(article.id) %></h5>
                   <%= article.description %>
+                  <p>
+                    <%= article.created_at %>
+                  </p>
                   <div class="like-comment-readmore">
                     <i class="fa fa-thumbs-o-up"> 08</i>
                     <a href="#" class="comments"><i class="fa fa-comments-o"></i> 49</a>
@@ -128,6 +131,9 @@
             <div class="featured-sports-news-post">
               <h5><%= link_to article.title, home_article_path(article.id) %></h5>
               <%= article.description %>
+              <p>
+                <%= article.created_at %>
+              </p>
               <div class="like-comment-readmore">
                 <a href="#" class="comments"><i class="fa fa-comments-o"></i> 49</a>
                 <%= link_to 'Read More', home_article_path(article.id) %>

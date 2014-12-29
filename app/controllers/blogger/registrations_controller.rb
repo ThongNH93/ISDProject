@@ -1,6 +1,6 @@
 class Blogger::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+  before_filter :configure_account_update_params, only: [:update]
 
   before_action :set_categories
   # GET /resource/sign_up
@@ -14,14 +14,16 @@ class Blogger::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  def edit
-
-  end
+  # def edit
+  # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @blogger=Blogger.find(current_blogger.id)
+    @blogger.update(blogger_params)
+
+    redirect_to home_blogger_account_path(@blogger.id)
+  end
 
   # DELETE /resource
   # def destroy
@@ -45,9 +47,12 @@ class Blogger::RegistrationsController < Devise::RegistrationsController
   # end
 
   # You can put the params you want to permit in the empty array.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.for(:account_update) << :attribute
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :email,:address,:phone,:gender,:profile_image]
+    # { |u|
+    #       u.permit(:first_name, :last_name, :email,:address,:phone,:gender)
+    #     }
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
@@ -57,6 +62,11 @@ class Blogger::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
+
+  private
+  def blogger_params
+    params.require(:blogger).permit(:first_name, :last_name, :email,:address,:phone,:gender,:profile_image)
+  end
   def set_categories
     @categories= Category.all
   end

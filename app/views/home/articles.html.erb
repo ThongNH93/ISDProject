@@ -20,6 +20,9 @@
               <article>
                 <h4><%= link_to article.title, home_article_path(article.id) %></h4>
                 <%= article.description %>
+                <p>
+                  <%= article.created_at%>
+                </p>
                 <div class="meta-data">
                 <%= link_to home_article_path(article.id), class:"comments" do%>
                       <i class="fa fa-comments-o"></i><%= article.comments.size.to_s %>
@@ -42,7 +45,9 @@
                 <p>
                     <%= article.description%>
                 </p>
-
+                <p>
+                  <%= article.created_at%>
+                </p>
                 <div class="meta-data">
                   <%= link_to home_article_path(article.id), class:"comments" do%>
                       <i class="fa fa-comments-o"></i><%= article.comments.where("status='Duyệt'").size.to_s %>

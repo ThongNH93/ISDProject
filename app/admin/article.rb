@@ -12,7 +12,7 @@ ActiveAdmin.register Article do
 
   permit_params :admin_user_id, :title, :description, :content, :author ,:image, category_ids: []
   if @str.eql?'1'
-    actions :all, except: [:update, :destroy,:create]
+    actions :all, except: [:change_password, :destroy,:create]
   else
     actions :all
   end

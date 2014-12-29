@@ -1,0 +1,114 @@
+<br>
+<div class="container">
+  <h2>Chia sẻ bài viết</h2>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+
+        <%= form_for home_blogger_upload_article_path, html: { class:"form-horizontal", role:"form",id: "upload_form" ,method: :post} do |f| %>
+        <% if flash[:alert]  %>
+            <div class="alert alert-info alert-dismissable">
+              <a class="panel-close close" data-dismiss="alert">×</a>
+              <p class="alert" style="color: red"><%= alert %></p>
+            </div>
+        <% end %>
+        <!-- edit form column -->
+        <div class="col-lg-12">
+          <div class="form-group">
+            <label class="col-sm-1 control-label">Ảnh bìa</label>
+            <div class="col-sm-11">
+              <%= f.file_field :image,  label: "Ảnh đại diện", required: true  %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="title" class="col-md-1 control-label">Tiêu đề</label>
+            <div class="col-md-11">
+                <%= f.text_field :title, placeholder:'Tiêu đề', id:'title', type:"text",class:"form-control", :required => true%>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="title" class="col-md-1 control-label">Tác giả</label>
+            <div class="col-md-11">
+              <%= f.text_field :author, placeholder:'Tác giả', id:'tác giả', type:"text",class:"form-control", :required => true%>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-md-1 control-label">Tóm tắt</label>
+            <div class="col-md-11">
+                <%= f.text_field :description, placeholder:'Tóm tắt', id:'description', type:'text',class:"form-control", :required => true%>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-md-1 control-label">Nội dung</label>
+            <div class="col-lg-11">
+              <%= f.text_area :content,:class => 'ckeditor', name:"content",id:"content" %>
+
+              <script type='text/javascript' charset='UTF-8'>
+
+//                  $("#submit").click(function(){
+//                      CKEDITOR.instances.content.updateElement();
+//                      $("#upload_form").validate({
+//                          rules: {
+//                              content: "required"
+//                          },
+//                          messages: {
+//                              content: "Please add some code before continue"
+//                          },
+//                          errorPlacement: function(error, element){
+//                              $(element).each(function (){
+//                                  $(this).parent('div').find('p.error').html(error);
+//                              });
+//                          }
+//                      });
+//                  });
+//
+//                    jQuery(function($){
+//                        $("#upload_form").validate({
+//                            event: 'blur',
+//                            rules: {
+//                                content: {
+//                                    required: function(textarea) {
+//                                        CKEDITOR.instances[textarea.id].updateElement(); // update textarea
+//                                        var editorcontent = textarea.value.replace(/<[^>]*>/gi, ''); // strip tags
+//                                        return editorcontent.length === 0;
+//                                    }
+//                                }
+//                            }
+//                        });
+//                    });
+
+                  $(document).ready(function(){
+                      $('form[data-remote]').bind("ajax:before", function(){
+                          for (instance in CKEDITOR.instances){
+                              CKEDITOR.instances[instance].updateElement();
+                              $("#upload_form").validate({
+                                  rules: {
+                                      content: "required"
+                                  },
+                                  messages: {
+                                      content: "Please add some code before continue"
+                                  },
+                                  errorPlacement: function(error, element){
+                                      $(element).each(function (){
+                                          $(this).parent('div').find('p.error').html(error);
+                                      });
+                                  }
+                              });
+                          }
+                      });
+                  });
+              </script>
+            </div>
+
+          </div>
+          <div class="form-group">
+              <div class="col-md-8" style="text-align: center">
+                <%= f.submit "Đăng bài",id:"submit", class: "btn btn-primary"  %>
+                <span></span>
+                <%= link_to "Cancel", home_blogger_account_path(current_blogger.id),method: :get,class:"btn btn-default", value:"Cancel", type:"reset"%>
+              </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

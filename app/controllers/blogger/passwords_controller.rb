@@ -17,9 +17,8 @@ class Blogger::PasswordsController < Devise::PasswordsController
   # end
 
   # PUT /resource/password
-  def update
-    raise("aa ")
-  end
+  # def update
+  # end
 
   # protected
 

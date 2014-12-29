@@ -15,8 +15,6 @@ class Article < ActiveRecord::Base
 
   accepts_nested_attributes_for :categories, :allow_destroy => true
 
-
-
   # searchable  do
   Sunspot.setup(Article) do
     text :title, :description, :content

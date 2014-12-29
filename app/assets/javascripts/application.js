@@ -15,3 +15,4 @@
 //= require_self
 //= require bootstrap.min
 //= require custom
+//= require ckeditor/init

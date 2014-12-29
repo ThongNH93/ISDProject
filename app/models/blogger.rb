@@ -7,7 +7,6 @@ class Blogger < ActiveRecord::Base
   mount_uploader :profile_image, ImageUploader
   validates_presence_of  :email
   validates_uniqueness_of :email
-  # validates_format_of :email, :with => "/^[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}$/i"
   validates_confirmation_of :password
 
   has_many :blogs

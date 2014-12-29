@@ -23,7 +23,7 @@
 <config>
   <!-- In all configuration below, a prefix of "solr." for class names
        is an alias that causes solr to search appropriate packages,
-       including org.apache.solr.(search|update|request|core|analysis)
+       including org.apache.solr.(search|change_password|request|core|analysis)
 
        You may also specify a fully qualified Java classname if you
        have your own custom plugins.

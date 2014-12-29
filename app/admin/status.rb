@@ -5,7 +5,7 @@ ActiveAdmin.register Status do
   permit_params :name, :priority
   before_filter :skip_sidebar!, :only => :index
 
- actions :all, except: [:update, :destroy, :show, :edit]
+ actions :all, except: [:change_password, :destroy, :show, :edit]
 
   form(:html => { :multipart => true }) do |f|
     f.inputs "Độ ưu tiên" do

@@ -88,7 +88,7 @@
           <%= f.text_field :name, placeholder:'Tên', id:'author', type:"text", :required => true%>
           <%= f.text_field :email, placeholder:'Email', id:'email', type:'email', :required => true%>
           <%= f.text_area :content, placeholder:'Bình luận', id:'comment', :required => true%>
-          <%= f.submit id:'submit',type:"submit",value:"Bình luận"  %>
+          <%= f.submit id:'submit',type:"submit",value:"Bình luận", class:"btn btn-warning pull-right"  %>
   <% end %>
 
   </div> <!-- /#respond -->

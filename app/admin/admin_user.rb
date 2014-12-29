@@ -2,7 +2,7 @@ ActiveAdmin.register AdminUser do
 
   menu parent: 'Quản trị admin ', label: "Quản lý admin"
 
-  permit_params :email, :password, :password_confirmation, :first_name, :last_name
+  permit_params :email, :password, :password_confirmation, :first_name, :last_name, :gender, :dob, :address, :phone, :profile_image
 
   index do
     selectable_column
@@ -18,10 +18,11 @@ ActiveAdmin.register AdminUser do
   filter :sign_in_count
   filter :created_at
 
-  form do |f|
-    f.inputs "Admin Details" do
-      f.input :first_name, label: "Họ và tên đệm"
-      f.input :last_name, label: "Tên"
+  form(:html => { :multipart => true }) do |f|
+    f.inputs "blogger" do
+      f.input :first_name, :label => "Họ và tên đệm"
+      f.input :last_name, :label => "Tên"
+      f.input :dob, label: "Ngày sinh", :as => :datepicker
       f.input :email, label: "Email"
       f.input :password, label: "Mật khẩu"
       f.input :password_confirmation, label: "Xác nhận mật khẩu"
@@ -29,17 +30,17 @@ ActiveAdmin.register AdminUser do
       f.input :address, label: "Địa chỉ"
       f.input :gender, label: "Giới tính", :as => :radio, :collection => ["Nam", "Nữ"]
       f.input :profile_image , label: "Ảnh đại diện", :as => :file
+      # f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url)
     end
     f.actions
   end
-
   show do |admin_user|
     panel "Thông tin admin" do
       attributes_table_for admin_user  do
         row ('Ảnh đại diện'), :image do
           image_tag (admin_user.profile_image), width: 100
         end
-        row('Tên và tên'){admin_user.first_name.to_s.concat(" "+admin_user.last_name.to_s)}
+        row('Họ và tên'){admin_user.first_name.to_s.concat(" "+admin_user.last_name.to_s)}
         row('Giới tính') {admin_user.gender}
         row ('Email'){ admin_user.email}
         row('Ngày sinh'){admin_user.dob}

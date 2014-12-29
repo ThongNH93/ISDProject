@@ -6,10 +6,14 @@
   <div class="panel panel-info">
     <div class="panel-heading">
       <div class="panel-title">Sign Up</div>
-      <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+      <div style="float:right; font-size: 85%; position: relative; top:-10px"><%= link_to "Sign in", new_blogger_session_path  %></div>
     </div>
     <div class="panel-body" >
-      <form id="signupform" class="form-horizontal" role="form">
+      <%= form_for(resource, as: resource_name,url: registration_path(resource_name),:html => {id:"signupform", class:"form-horizontal", role:"form"}) do |f| %>
+
+          <div style="margin-left: 90px"><%= devise_error_messages! %></div>
+
+          <!--<form id="signupform" class="form-horizontal" role="form">-->
 
         <div id="signupalert" style="display:none" class="alert alert-danger">
           <p>Error:</p>
@@ -17,64 +21,39 @@
         </div>
 
 
-
         <div class="form-group">
-          <label for="email" class="col-md-3 control-label">Email</label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" name="email" placeholder="Email Address">
+          <label for="email" class="col-md-4 control-label">Email</label>
+          <div class="col-md-8">
+            <!--<input type="text" class="form-control" name="email" placeholder="Email Address">-->
+            <%= f.email_field :email, autofocus: true,class:"form-control",placeholder:"Email",type:'email', :required => true %>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="firstname" class="col-md-3 control-label">First Name</label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" name="firstname" placeholder="First Name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="lastname" class="col-md-3 control-label">Last Name</label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="password" class="col-md-3 control-label">Password</label>
-          <div class="col-md-9">
-            <input type="password" class="form-control" name="passwd" placeholder="Password">
+          <label for="password" class="col-md-4 control-label">Mật khẩu</label>
+          <div class="col-md-8">
+            <%= f.password_field :password, autocomplete: "off",class:"form-control",placeholder:"Mật khẩu", type:'password', :required => true %>
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="icode" class="col-md-3 control-label">Invitation Code</label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" name="icode" placeholder="">
-          </div>
+       <div class="form-group">
+        <label for="password" class="col-md-4 control-label">Xác nhận mật khẩu</label>
+        <div class="col-md-8">
+          <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control",placeholder:"Xác nhận mật khẩu", type:'password', :required => true %>
         </div>
+       </div>
 
         <div class="form-group">
           <!-- Button -->
           <div class="col-md-offset-3 col-md-9">
-            <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
-            <span style="margin-left:8px;">or</span>
+            <!--<button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>-->
+            <%= f.submit "Sign up", class: "btn btn-info" %>
           </div>
         </div>
-
-        <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
-
-          <div class="col-md-offset-3 col-md-9">
-            <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
-          </div>
-
-        </div>
-
-
-
-      </form>
+      <!--</form>-->
+      <% end %>
     </div>
   </div>
 
-
-
-
-</div>
+ </div>
 </div>

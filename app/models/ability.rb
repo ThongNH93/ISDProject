@@ -14,7 +14,7 @@ class Ability
     # The first argument to `can` is the action you are giving the user 
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
+    # here are :read, :create, :change_password and :destroy.
     #
     # The second argument is the resource the user can perform the action on. 
     # If you pass :all it will apply to every resource. Otherwise pass a Ruby
@@ -22,7 +22,7 @@ class Ability
     #
     # The third argument is an optional hash of conditions to further filter the
     # objects.
-    # For example, here the user can only update published articles.
+    # For example, here the user can only change_password published articles.
     #
        can :read, Article, :published => true
     #

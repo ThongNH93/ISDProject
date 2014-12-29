@@ -5,12 +5,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  Rails.application.routes.draw do
-    devise_for :bloggers, controllers: {
+  devise_for :bloggers, controllers: {
         sessions: 'blogger/sessions',
         registrations: 'blogger/registrations'
-    }
-  end
+  }
+
 
   root 'home#index'
 
@@ -39,24 +38,26 @@ Rails.application.routes.draw do
   #blog comment
   post 'home/blog/:id', to: 'home#blog_comment', as: 'blog_comment'
 
+  get 'home/blogger/:id/view_blog', to: 'home#blogger_view_blog', as: 'home_blogger_view_blog'
   get 'home/blogger/:id', to: 'home#blogger_account', as: 'home_blogger_account'
-  get 'home/blogger/:id/upload', to: 'home#blogger_upload_article', as: 'blogger_upload_article'
-  get 'home/blogger/:id/upload', to: 'home#blogger_edit_article', as: 'blogger_edit_article'
+  get 'home/blogger/:id/upload', to: 'home#blogger_upload_article_form', as: 'home_blogger_upload_article_form'
+  post 'home/blogger/:id/upload', to: 'home#blogger_upload_article', as: 'home_blogger_upload_article'
+  get 'home/blogger/:id/edit_article', to: 'home#blogger_edit_article_form', as: 'home_blogger_edit_article_form'
+  post 'home/blogger/:id/edit_article', to: 'home#blogger_edit_article', as: 'home_blogger_edit_article'
+  get 'home/blogger/:id/change_password', to: "home#blogger_change_password_form", as: 'home_blogger_change_password_form'
+  post 'home/blogger/:id/change_password', to: "home#blogger_change_password", as: 'home_blogger_change_password'
 
   get 'home/rss_page', to: 'home#rss_page', as: 'home_rss_page'
   get 'home/category_rss/:id', to: 'home#category_rss', as: 'home_category_rss'
   get 'home/blog_rss',  to: 'home#blog_rss', as: 'home_blog_rss'
 
-  # front-end route
+  # back-end route
   post 'admin/articles/:id', to: 'admin/articles#status', as: 'admin_articles_update_status'
   post 'admin/videos/:id', to: 'admin/videos#status', as: 'admin_videos_update_status'
   post 'admin/comments/:id', to: 'admin/comments#status', as: 'admin_comments_update_status'
   post 'admin/blogs/:id', to: 'admin/blogs#status', as: 'admin_blogs_update_status'
   post 'admin/bloggers/:id', to: 'admin/bloggers#status', as: 'admin_bloggers_update_status'
 
-  # resources :articles do
-  #   resources :comments
-  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

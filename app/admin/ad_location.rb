@@ -5,7 +5,7 @@ ActiveAdmin.register AdLocation do
   permit_params :name, :image, :ordered
 
   before_filter :skip_sidebar!, :only => :index
-  actions :all, except: [:update, :destroy, :new]
+  actions :all, except: [:change_password, :destroy, :new]
 
   index title:"Danh sách vị trí quảng cáo" do
     selectable_column

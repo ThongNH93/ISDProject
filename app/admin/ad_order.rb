@@ -12,13 +12,9 @@ ActiveAdmin.register AdOrder do
 
 
   before_create do |order|
-    # if order.id.eql?(order.ad_location_id)
-      order.ad_location.update(image: order.image)
-      order.ad_location.update(ordered: true)
-    # else
-
-    # end
-
+    # raise(order.image.to_s)
+    order.ad_location.update(image: order.image)
+    order.ad_location.update(ordered: true)
   end
   before_update do |order|
     old_location=AdLocation.find_by(order.ad_location_id)

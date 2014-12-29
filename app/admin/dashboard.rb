@@ -10,34 +10,26 @@ ActiveAdmin.register_page "Dashboard" do
       # end
     end
 
-    # section "Recently updated content" do
-    #   table_for PaperTrail::Version.order('id desc').limit(20) do # Use PaperTrail::Version if this throws an error
-    #     column ("Item") { |v| link_to v.item, [:admin, v.item] } # Uncomment to display as link
-    #     column :event
-    #     column ("Type") { |v| v.item_type.underscore.humanize }
-    #     column ("Modified at") { |v| v.created_at.to_s :long }
-    #     column ("Admin") { |v| link_to AdminUser.find(v.whodunnit).email, [:admin, AdminUser.find(v.whodunnit)] }
-    #   end
-    # end
+    section "Recently updated content" do
+      @history=PaperTrail::Version.order('id desc').page(params[:page]).per_page(10)
+      table_for @history do # Use PaperTrail::Version if this throws an error
+        column ("Item") { |v| link_to v.item, [:admin, v.item] } # Uncomment to display as link
+        column :event
+        column ("Type") { |v| v.item_type.underscore.humanize }
+        column ("Modified at") { |v| v.created_at.to_s :long }
+        column ("Admin") { |v| link_to AdminUser.find(v.whodunnit).email, [:admin, AdminUser.find(v.whodunnit)] }
+      end
+      div paginate @history
+    end
+    @metric =  ViewsStatistic.group_by_hour(:created_at).sum(:views)
+    # @pie_chart_data= ViewsStatistic.group(:created_at).sum(:views)
+    @pie_chart_data= Hash.new
+    Category.all.each do |category|
+      category_total_views=category.views.sum(:views)
+      @pie_chart_data[category.name]=category_total_views
+    end
+    @pie_chart_data["Blog"]=ViewsStatistic.all.where(:blog_id => !nil).sum(:views)
+    render :partial => 'metrics/line_chart', :locals => {:metric => @metric,:pie_chart_data  => @pie_chart_data}
 
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
   end # content
 end

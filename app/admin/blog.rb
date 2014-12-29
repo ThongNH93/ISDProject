@@ -11,7 +11,7 @@ ActiveAdmin.register Blog do
 
   permit_params :blogger_id, :title, :description, :content, :author ,:image,:status
   if @str.eql?'1'
-    actions :all, except: [:update, :destroy,:create]
+    actions :all, except: [:change_password, :destroy,:create]
   else
     actions :all
   end
