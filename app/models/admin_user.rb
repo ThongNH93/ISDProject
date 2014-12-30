@@ -4,7 +4,7 @@ class AdminUser < ActiveRecord::Base
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates_presence_of :first_name, :last_name, :dob, :gender, :address, :phone, :profile_image
+  # validates_presence_of :first_name, :last_name, :dob, :gender, :address, :phone, :profile_image
   validates_uniqueness_of :email
 
   mount_uploader :profile_image, ImageUploader
