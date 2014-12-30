@@ -10,6 +10,12 @@ ActiveAdmin.register Article do
   filter :status_id,label: "Trạng thái", :as => :select, :collection => proc {Status.all}
   filter :created_at, label: "Ngày đăng"
 
+  member_action :history do
+    @post = Article.find(params[:id])
+    @versions = @post.versions
+    render "admin/history"
+  end
+
   permit_params :admin_user_id, :title, :description, :content, :author ,:image, category_ids: []
   if @str.eql?'1'
     actions :all, except: [:change_password, :destroy,:create]
@@ -80,6 +86,11 @@ ActiveAdmin.register Article do
         text_node "Post by "+ article.author+ " on "+ article.created_at.to_s
         text_node article.content.html_safe
       end
+    end
+    @post = Article.find(params[:id])
+    @versions = @post.versions
+    panel "Historia" do
+      table_for assigns[:versions]
     end
   end
 

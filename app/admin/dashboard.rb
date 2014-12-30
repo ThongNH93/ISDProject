@@ -21,8 +21,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
       div paginate @history
     end
-    @metric =  ViewsStatistic.group_by_hour(:created_at).sum(:views)
-    # @pie_chart_data= ViewsStatistic.group(:created_at).sum(:views)
+    @metric =  ViewsStatistic.group_by_hour(:created_at,range: 24.hours.ago..Time.now).sum(:views)
     @pie_chart_data= Hash.new
     Category.all.each do |category|
       category_total_views=category.views.sum(:views)

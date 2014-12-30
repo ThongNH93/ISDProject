@@ -67,20 +67,16 @@
             <%end %>
             <li><%= link_to 'Blogs', home_blogs_path %></li>
 
-
-          </ul> <!-- /  .nav -->
-          <ul class="right-top-menu pull-right" style="float:right;  margin-top: 10px">
+          <%= form_tag home_search_path, method: :get,:class => "form-inline",style: "margin-top: 3px" do |f|  %>
             <li>
-
-              <%= form_tag home_search_path, method: :get,:class => "form-inline",style:"margin-top: -7px" do |f|  %>
-                  <span class='input-group-btn'>
-                    <%= text_field_tag :search, params[:search],placeholder: 'Search province', class:"form-control"%>
-                    <%= submit_tag 'Search', class: 'btn btn-warning' %>
-                  </span>
-              <%end %>
+              <span class='input-group-btn' >
+                <%= text_field_tag :search, params[:search],placeholder: 'Search province',class:"form-control" %>
+                <%= submit_tag 'Search', class: 'btn btn-warning' %>
+              </span>
             </li>
+          <% end %>
           </ul>
-        </div><!-- /  .collapse .navbar-collapse  -->
+            </div><!-- /  .collapse .navbar-collapse  -->
 
       </div>	<!-- /.container -->
     </nav> <!-- /.main-menu -->
