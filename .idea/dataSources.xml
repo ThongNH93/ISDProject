@@ -6,7 +6,6 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
-      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ISDProject: development" uuid="9a3305f6-be43-49d3-8e2e-6a537f923863">
@@ -14,7 +13,6 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
-      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ISDProject: test" uuid="c7e33a47-9e1e-405a-a547-d71dd5d9706d">
@@ -22,7 +20,6 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
-      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ISDProject: production" uuid="3e6d219a-0d31-46f0-82e4-ba39949881ef">
@@ -30,7 +27,6 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
-      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
   </component>
