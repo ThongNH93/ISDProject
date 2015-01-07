@@ -16,9 +16,7 @@ ActiveAdmin.register Status do
     end
     f.actions
   end
-  sidebar :status, :only => :show do
-    render 'user'
-  end
+
   index title:"Danh sách trạng thái" do
     selectable_column
     id_column

@@ -10,17 +10,17 @@ ActiveAdmin.register_page "Dashboard" do
       # end
     end
 
-    section "Recently updated content" do
-      @history=PaperTrail::Version.order('id desc').page(params[:page]).per_page(10)
-      table_for @history do # Use PaperTrail::Version if this throws an error
-        column ("Item") { |v| link_to v.item, [:admin, v.item] } # Uncomment to display as link
-        column :event
-        column ("Type") { |v| v.item_type.underscore.humanize }
-        column ("Modified at") { |v| v.created_at.to_s :long }
-        column ("Admin") { |v| link_to AdminUser.find(v.whodunnit).email, [:admin, AdminUser.find(v.whodunnit)] }
-      end
-      div paginate @history
-    end
+    # section "Recently updated content" do
+    #   @history=PaperTrail::Version.order('id desc').page(params[:page]).per_page(10)
+    #   table_for @history do # Use PaperTrail::Version if this throws an error
+    #     column ("Item") { |v| link_to v.item, [:admin, v.item] } # Uncomment to display as link
+    #     column :event
+    #     column ("Type") { |v| v.item_type.underscore.humanize }
+    #     column ("Modified at") { |v| v.created_at.to_s :long }
+    #     column ("Admin") { |v| link_to AdminUser.find(v.whodunnit).email, [:admin, AdminUser.find(v.whodunnit)] }
+    #   end
+    #   div paginate @history
+    # end
     @metric =  ViewsStatistic.group_by_hour(:created_at,range: 24.hours.ago..Time.now).sum(:views)
     @pie_chart_data= Hash.new
     Category.all.each do |category|

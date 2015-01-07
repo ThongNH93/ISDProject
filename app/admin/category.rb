@@ -3,7 +3,11 @@ ActiveAdmin.register Category do
   menu parent: 'Quản lý nội dung ', label: "Quản lý chuyên mục"
 
   permit_params :name
-  index title:"Danh sách chuyên mục" do |category|
+  before_filter :only => :index do
+    @per_page = 10
+  end
+
+  index title:"Danh sách chuyên mục" do
     selectable_column
     id_column
     column "Tên chuyên mục", :name
@@ -21,8 +25,8 @@ ActiveAdmin.register Category do
       category.created_at.to_s
     end
     column "Ngày sửa", :updated_at do |category|
-        category.updated_at.to_s
-  end
+      category.updated_at.to_s
+    end
     actions
   end
 

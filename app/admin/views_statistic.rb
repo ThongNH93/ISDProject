@@ -1,7 +1,7 @@
 ActiveAdmin.register ViewsStatistic do
 
   actions :all, except: [ :destroy, :show, :edit, :new]
-  menu label: "Thống kê truy cập"
+  menu label: "Thống kê truy cập "
   index title:"Thống kê truy cập trang web" do
     @categories
     @metric =  ViewsStatistic.group_by_day(:created_at).sum(:views)

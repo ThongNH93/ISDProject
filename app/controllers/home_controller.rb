@@ -196,15 +196,22 @@ class HomeController < ApplicationController
     @side_bar_2nd=AdLocation.find_by("name = 'Sidebar 2nd - Trang danh sách video'").ad_order
   end
   def search
-    raise(params[:search])
-    @search = Sunspot.search(Article) do
-    # @search= Article.solr_search do
-      # fulltext params[:search]
-      keywords params[:search]
-    end
-    @results = @search.results
-    # raise(@results.size.to_s)
+    # raise(params[:search])
+    # @search = Sunspot.search(Article) do
+    # # @search= Article.solr_search do
+    #   # fulltext params[:search]
+    #   keywords params[:search]
+    # end
+    # @results = @search.results
 
+    approved_priority=Status.find_by(:name => "Duyệt").priority
+
+    # @results=Article.joins(:status).where('statuses.priority >= ?',approved_priority).where("title LIKE ? || description LIKE ? || content LIKE ?","#{params[:search]}%","#{params[:search]}%","#{params[:search]}%")
+    # @results = Blog.where('status = "Duyệt"').where("title LIKE ? || description LIKE ? || content LIKE ?","#{params[:search]}%","#{params[:search]}%","#{params[:search]}%")
+
+    # raise(@results.size.to_s)
+    @results=Article.all.where("title LIKE ? || description LIKE ? || content LIKE ?","#{params[:search]}%","#{params[:search]}%","#{params[:search]}%").paginate(:page => params[:page], :per_page => 7).uniq
+    # @results << Blog.all.where("title LIKE ? || description LIKE ? || content LIKE ?","#{params[:search]}%","#{params[:search]}%","#{params[:search]}%").paginate(:page => params[:page], :per_page => 7).uniq
     render 'home/search_result_page'
   end
 
@@ -335,7 +342,7 @@ class HomeController < ApplicationController
   end
   def about
 
-   end
+  end
 
   private
 # # Use callbacks to share common setup or constraints between actions.
@@ -344,7 +351,8 @@ class HomeController < ApplicationController
   end
 
   def side_bar
-    @youtube_link=Video.all.first
+    approved_priority=Status.find_by(:name => "Duyệt").priority
+    @youtube_link=Video.joins(:status).where('statuses.priority >= ?',approved_priority).order('videos.created_at DESC').first
   end
 
   def top_ad

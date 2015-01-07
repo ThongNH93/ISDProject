@@ -1,9 +1,7 @@
 ActiveAdmin.register Article do
 
-  @str='2'
-  if @str.eql?'2'
-    menu parent: 'Quản lý nội dung ', label: "Quản lý bài viết"
-  end
+  menu parent: 'Quản lý nội dung ', label: "Quản lý bài viết"
+
   filter :title, label: "Tiêu đề"
   filter :author, label: "Tác giả"
   filter :categories, label: "Chuyên mục"
@@ -17,11 +15,12 @@ ActiveAdmin.register Article do
   end
 
   permit_params :admin_user_id, :title, :description, :content, :author ,:image, category_ids: []
-  if @str.eql?'1'
-    actions :all, except: [:change_password, :destroy,:create]
-  else
-    actions :all
-  end
+
+  # if @str.eql?'1'
+  #   actions :all, except: [:change_password, :destroy,:create]
+  # else
+  #   actions :all
+  # end
 
   form(:html => { :multipart => true }) do |f|
     f.inputs "Article" do
@@ -115,6 +114,4 @@ ActiveAdmin.register Article do
   end
   sidebar "Version", :partial => "admin/version", :only => :show
   sidebar "Kiểm duyệt nội dung", :partial => "admin/approve_article", :only => :show
-
-
 end

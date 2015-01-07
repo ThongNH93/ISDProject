@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-      user ||= User.new # guest user (not logged in)
+      # user ||= User.new # guest user (not logged in)
       # if user.admin?
       #   can :manage, :all
       # else
@@ -24,9 +24,17 @@ class Ability
     # objects.
     # For example, here the user can only change_password published articles.
     #
-       can :read, Article, :published => true
+       # can :read, Article, :published => true
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
+
+    user.role.permissions.each do |permission|
+      if permission.subject_class == "all"
+        can permission.action.to_sym, permission.subject_class.to_sym
+      else
+        can permission.action.to_sym, permission.subject_class.constantize
+      end
+    end
   end
 end

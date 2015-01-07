@@ -1,5 +1,69 @@
-<section id="ccr-left-section" class="col-md-12">
-<% if @results.present? %>
-  <%= @results.size%>
-<% end %>
+<section id="ccr-left-section" class="col-md-8">
+  <section id="ccr-blog">
+    <% if @results.present? %>
+        <% @results.each_with_index do |result| %>
+            <%if result.is_a?(Article)%>
+                <article>
+                  <figure class="blog-thumbnails">
+                    <%= link_to home_article_path(result.id) do %>
+                        <img src="<%= image_path(result.image) %>" alt="Thumb">
+                    <%end%>
+                  </figure> <!-- /.blog-thumbnails -->
+                  <div class="blog-text">
+                    <h1><%= link_to result.title, home_article_path(result.id) %></h1>
+                    <p>
+                      <%= result.description%>
+                    </p>
+                    <p>
+                      <%= result.created_at%>
+                    </p>
+                    <div class="meta-data">
+                      <%= link_to home_article_path(result.id), class:"comments" do%>
+                          <i class="fa fa-comments-o"></i><%= result.comments.where("status='Duyệt'").size.to_s %>
+                      <% end %>
+                      <span class="read-more">
+                        <%= link_to 'Read More',  home_article_path(result.id)%>
+                      </span>
+                    </div>
+                  </div> <!-- /.blog-text -->
+                </article>
+            <% elsif result.is_a?(Blog) %>
+                <article>
+                  <figure class="blog-thumbnails">
+                    <%= link_to home_blog_path(result.id) do %>
+                        <img src="<%= image_path(result.image) %>" alt="Thumb">
+                    <%end%>
+                  </figure> <!-- /.blog-thumbnails -->
+                  <div class="blog-text">
+                    <h1><%= link_to result.title, home_blog_path(result.id) %></h1>
+                    <p>
+                      <%= result.description%>
+                    </p>
+                    <p>
+                      <%= result.created_at%>
+                    </p>
+                    <div class="meta-data">
+                      <%= link_to home_blog_path(result.id), class:"comments" do%>
+                          <i class="fa fa-comments-o"></i><%= result.comments.where("status='Duyệt'").size.to_s %>
+                      <% end %>
+                      <span class="read-more">
+                        <%= link_to 'Read More',  home_blog_path(result.id)%>
+                      </span>
+                    </div>
+                  </div> <!-- /.blog-text -->
+                </article>
+            <% end %>
+        <%end%><!-- if-else -->
+    <% else %>
+       <div style="margin-top: 100px;margin-left: 300px">
+          <h3>Không tìm thấy</h3>
+       </div>
+    <% end %>
+
+    <div class="clearfix"></div>
+    <div class="flickr_pagination" >
+      <!--<= will_paginate @results,:container => false %>-->
+    </div>
+  </section> <!-- /#ccr-blog -->
 </section>
+<%= render :partial => 'layouts/sidebar' %>
