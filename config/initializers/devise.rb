@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '885c965ff46422ec03c26af212c037aee7e90e26e8f6b23886f1a92faad93917544fe7e5132b3bcf798a8eb6916c6a9c57f10eef18469b4bc98dd5d190d62bff'
+  # config.secret_key = 'e8c1fa71a1c243f1e8f841f214f61e06ef6459e1318f4bbdeec57432613f9dce7a3a6d37e42ed70c0abcf3ff7ee697d298f5e2476263ae18ce14f2d07b6a9859'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -61,7 +61,7 @@ Devise.setup do |config|
   # :database      = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
 
-  # If http headers should be returned for AJAX requests. True by default.
+  # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
 
   # The realm used in Http Basic Authentication. 'Application' by default.
@@ -97,7 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'e644a811b25ba911556da8cc12c77fd897888c37d56f9aa48776bc37817f22045a0fd1490c79afef39afdac89d2cc5e0b15a6f7647fcedaf627b712aeb2edce4'
+  # config.pepper = '49ecc1189eefdfcc67b5f2bb1fa23c7d4c2790d3ba8c45b2391326b747b4f25d79bf4451a399572deaca0b8c40f118e6965b74dc94c64b7e0dec7b4ed89f6f01'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -128,6 +128,9 @@ Devise.setup do |config|
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
 
+  # Invalidates all the remember me tokens when the user signs out.
+  config.expire_all_remember_me_on_sign_out = true
+
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
 
@@ -137,7 +140,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 4..128
+  config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -176,7 +179,7 @@ Devise.setup do |config|
   # config.unlock_in = 1.hour
 
   # Warn on the last attempt before the account is locked.
-  # config.last_attempt_warning = false
+  # config.last_attempt_warning = true
 
   # ==> Configuration for :recoverable
   #
