@@ -3,6 +3,7 @@ class CreateAdLocations < ActiveRecord::Migration
       super
       # Create a default user
       AdLocation.create!(name: 'Top', ordered: false )if direction == :up
+      AdLocation.create!(name: 'Sidebar 1st - Trang nhất', ordered: false )if direction == :up
       AdLocation.create!(name: 'Sidebar 1st - Trang chuyên mục báo',  ordered: false  )if direction == :up
       AdLocation.create!(name: 'Sidebar 1st - Trang chi tiết báo' , ordered: false )if direction == :up
       AdLocation.create!(name: 'Sidebar 1st - Trang danh sách video' , ordered: false )if direction == :up
