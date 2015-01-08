@@ -2,7 +2,7 @@ ActiveAdmin.register Blogger do
 
   menu parent: 'Quản lý blog ', label: "Quản lý blogger"
 
-  permit_params :email, :password, :first_name ,:last_name, :dob, :password, :phone, :address, :gender, :profile_image,:active
+  permit_params :email, :blogger_level_id, :password, :first_name , :last_name, :dob, :password, :phone, :address, :gender, :profile_image, :active
 
   filter :blog, label: 'Blog'
   filter :email, label: "Email"
@@ -17,6 +17,7 @@ ActiveAdmin.register Blogger do
 
   form(:html => { :multipart => true }) do |f|
     f.inputs "blogger" do
+      f.input :blogger_level_id, label: "Cấp độ",:as => :select, :collection => BloggerLevel.all
       f.input :first_name, :label => "Họ và tên đệm"
       f.input :last_name, :label => "Tên"
       f.input :dob, label: "Ngày sinh", :as => :datepicker
@@ -43,8 +44,12 @@ ActiveAdmin.register Blogger do
     column "Hình ảnh", :image do |blogger|
       image_tag (blogger.profile_image.url), width: 100
     end
-    column  "Họ và tên đệm", :first_name
-    column  "Tên", :last_name
+    column  "Họ và tên" do |blogger|
+      blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)
+    end
+    column "Cấp độ" do |blogger|
+      blogger.blogger_level.name
+    end
     column  "Ngày sinh", :dob
     column  "Email", :email
     column  "Giới tính", :gender
@@ -58,19 +63,19 @@ ActiveAdmin.register Blogger do
   show  do |blogger|
     panel "Thông tin blogger" do
       attributes_table_for blogger  do
-          row ('Ảnh đại diện'), :image do
-            image_tag (blogger.profile_image.url), width: 100
-          end
-          row('Tên và tên đệm'){blogger.first_name}
-          row('Tên')  {blogger.last_name}
-          row('Giới tính') {blogger.gender}
-          row ('Email'){ blogger.email}
-          row('Ngày sinh'){blogger.dob}
-          row('Địa chỉ'){blogger.address}
-          row('Điện thoại'){blogger.phone}
-          row('Trạng thái'){status_tag(blogger.active.eql?(true)? 'Active' :'Deactive', blogger.active.eql?(true)? :ok : :error)}
-
+        row ('Ảnh đại diện'), :image do
+          image_tag (blogger.profile_image.url), width: 100
         end
+        row('Tên và tên'){blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)}
+        row ('Cấp độ'){auto_link blogger.blogger_level}
+        row('Giới tính') {blogger.gender}
+        row ('Email'){ blogger.email}
+        row('Ngày sinh'){blogger.dob}
+        row('Địa chỉ'){blogger.address}
+        row('Điện thoại'){blogger.phone}
+        row('Trạng thái'){status_tag(blogger.active.eql?(true)? 'Active' :'Deactive', blogger.active.eql?(true)? :ok : :error)}
+
+      end
     end
     panel "Danh sách bài viết" do
       blogs= blogger.blogs
@@ -113,7 +118,4 @@ ActiveAdmin.register Blogger do
     end
   end
   sidebar "Kiểm duyệt", :partial => "admin/active_deactive_blogger", :only => :show
-
-
-
 end

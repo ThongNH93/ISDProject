@@ -1,6 +1,6 @@
 ActiveAdmin.register_page  "History" do
 
-  menu label: "Lịch sử hoạt động", priority:5
+  menu label: "Lịch sử hoạt động ", priority:5
 
   content title:"Lịch sử hoạt động" do
     @history=PaperTrail::Version.order('id desc').page(params[:page]).per_page(10)

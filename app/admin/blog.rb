@@ -1,20 +1,19 @@
 ActiveAdmin.register Blog do
 
-  @str='2'
-  if @str.eql?'2'
-    menu parent: 'Quản lý Blog ', label: "Quản lý bài viết"
-  end
+
+  menu parent: 'Quản lý Blog ', label: "Quản lý bài viết"
+
   filter :title, label: "Tiêu đề"
   filter :author, label: "Tác giả"
   filter :status, label: "Trạng thái"
   filter :created_at, label: "Ngày đăng"
 
   permit_params :blogger_id, :title, :description, :content, :author ,:image,:status
-  if @str.eql?'1'
-    actions :all, except: [:change_password, :destroy,:create]
-  else
-    actions :all
-  end
+  # if @str.eql?'1'
+  #   actions :all, except: [:change_password, :destroy,:create]
+  # else
+  #   actions :all
+  # end
 
   form(:html => { :multipart => true }) do |f|
     f.inputs "Blog" do

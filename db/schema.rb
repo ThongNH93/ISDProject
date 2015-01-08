@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218140028) do
+ActiveRecord::Schema.define(version: 20150107161138) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20141218140028) do
     t.string   "address"
     t.string   "phone"
     t.string   "profile_image"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,6 +108,14 @@ ActiveRecord::Schema.define(version: 20141218140028) do
     t.integer "category_id"
   end
 
+  create_table "blogger_levels", force: true do |t|
+    t.string   "name"
+    t.string   "avatar"
+    t.integer  "views"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "bloggers", force: true do |t|
     t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
@@ -126,6 +135,7 @@ ActiveRecord::Schema.define(version: 20141218140028) do
     t.string   "gender"
     t.string   "profile_image"
     t.string   "password"
+    t.integer  "blogger_level_id"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -159,6 +169,24 @@ ActiveRecord::Schema.define(version: 20141218140028) do
     t.string   "email"
     t.text     "content"
     t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions", force: true do |t|
+    t.string   "object_type"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions_roles", id: false, force: true do |t|
+    t.integer "permission_id"
+    t.integer "role_id"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,14 +1,14 @@
 ActiveAdmin.register ViewsStatistic do
 
   actions :all, except: [ :destroy, :show, :edit, :new]
-  menu label: "Thống kê truy cập"
+  menu label: "Thống kê truy cập "
   index title:"Thống kê truy cập trang web" do
     @categories
     @metric =  ViewsStatistic.group_by_day(:created_at).sum(:views)
     # @pie_chart_data= ViewsStatistic.group(:created_at).sum(:views)
     @pie_chart_data= Hash.new
     Category.all.each do |category|
-      category_total_views=category.views.sum(:views)
+      category_total_views=category.articles.views.sum(:views)
       @pie_chart_data[category.name]=category_total_views
     end
     @pie_chart_data["Blog"]=ViewsStatistic.all.where(:blog_id => !nil).sum(:views)

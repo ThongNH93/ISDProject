@@ -1,13 +1,14 @@
 <aside id="ccr-right-section" class="col-md-4 ccr-home">
 
   <section id="sidebar-popular-post">
-    <div class="ccr-gallery-ttile">
-      <span></span>
-      <p><strong>Xem nhiều nhất</strong></p>
-    </div> <!-- .ccr-gallery-ttile -->
-    <ul>
-      <% if @popular_articles.present?
-            @popular_articles.each do |article| %>
+
+      <% if @popular_articles.present? %>
+        <div class="ccr-gallery-ttile">
+          <span></span>
+          <p><strong>Tin xem nhiều nhất</strong></p>
+        </div> <!-- .ccr-gallery-ttile -->
+        <ul>
+            <%@popular_articles.each do |article| %>
               <li>
                 <%= link_to home_article_path(article.id) do %>
                     <img src="<%= image_path(article.image) %>" alt="Avatar" height="170px" width="100px">
@@ -22,25 +23,35 @@
                 </div>
               </li>
            <% end %>
-      <% elsif @popular_videos.present?
-            @popular_videos.each do |video|%>
-                  <li>
-                      <a class='youtube' href="http:<%= video.video%>">
-                        <img src=<%= image_path(video.image) %> alt="300x200"  height="170px" width="100px">
-                        <div class="caption">
-                          <!--<h6><a class='youtube' href="http://www.youtube.com/embed/VOJyrQa_WR4?rel=0&amp;wmode=transparent">Flash / Video (Iframe/Direct Link To YouTube)</a></h6>-->
-                          <h6><%= video.title %></h6>
-                        </div>
-                      </a>
-                      <div class="date-like-comment">
-                        <span class="date"><time datetime=""><%= video.created_at %></time></span>
-                      </div>
-                  </li>
-
+        </ul>
+      <% elsif @popular_videos.present?%>
+        <div class="ccr-gallery-ttile">
+          <span></span>
+          <p><strong>Video mới cập nhật</strong></p>
+        </div> <!-- .ccr-gallery-ttile -->
+        <ul>
+            <%@popular_videos.each do |video|%>
+              <li>
+                  <a class='youtube' href="http:<%= video.video%>">
+                    <img src=<%= image_path(video.image) %> alt="300x200"  height="170px" width="100px">
+                    <div class="caption">
+                      <!--<h6><a class='youtube' href="http://www.youtube.com/embed/VOJyrQa_WR4?rel=0&amp;wmode=transparent">Flash / Video (Iframe/Direct Link To YouTube)</a></h6>-->
+                      <h6><%= video.title %></h6>
+                    </div>
+                  </a>
+                  <div class="date-like-comment">
+                    <span class="date"><time datetime=""><%= video.created_at %></time></span>
+                  </div>
               </li>
             <% end %>
-      <% elsif @popular_blogs.present?
-           @popular_blogs.each do |blog| %>
+        </ul>
+      <% elsif @popular_blogs.present?%>
+        <div class="ccr-gallery-ttile">
+          <span></span>
+          <p><strong>Blog xem nhiều nhất</strong></p>
+        </div> <!-- .ccr-gallery-ttile -->
+        <ul>
+           <%@popular_blogs.each do |blog| %>
               <li>
                 <%= link_to home_blog_path(blog.id) do %>
                     <img src="<%= image_path(blog.image) %>" alt="Avatar"  height="170px" width="100px">
@@ -55,15 +66,14 @@
                 </div>
               </li>
           <% end %>
+        </ul>
       <% end %>
-    </ul>
 
   </section> <!-- /#sidebar-popular-post -->
-
   <section id="sidebar-video-post">
     <div class="ccr-gallery-ttile">
       <span></span>
-      <p><strong>Video Post</strong></p>
+      <p><strong>Video mới nhất</strong></p>
     </div> <!-- .ccr-gallery-ttile -->
 
     <div class="sidebar-video">
@@ -85,11 +95,10 @@
       <%end%>
     </div>
   </section> <!-- /#ccr-sidebar-add-place -->
-
   <section id="ccr-sidebar-add-place">
     <div class="sidebar-add-place">
       <% if @side_bar_2nd.present?%>
-          <img src=<%= image_path(@side_bar_1st.image)%> alt="" width="370px" height="260px">
+          <img src=<%= image_path(@side_bar_2nd.image)%> alt="" width="370px" height="260px">
       <%else%>
          370x250 px
       <%end%>

@@ -10,7 +10,5 @@ class Video < ActiveRecord::Base
   belongs_to :status
   belongs_to :category
 
-  def set_success(format, opts)
-    self.success = true
-  end
+
 end
