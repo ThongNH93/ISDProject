@@ -8,7 +8,7 @@ class Blogger < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  include Rails.application.routes.url_helpers # neeeded for _path helpers to work in models
   mount_uploader :profile_image, ImageUploader
   validates_presence_of  :email
   validates_uniqueness_of :email
