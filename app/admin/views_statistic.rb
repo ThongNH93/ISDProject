@@ -8,7 +8,7 @@ ActiveAdmin.register ViewsStatistic do
     # @pie_chart_data= ViewsStatistic.group(:created_at).sum(:views)
     @pie_chart_data= Hash.new
     Category.all.each do |category|
-      category_total_views=category.views.sum(:views)
+      category_total_views=category.articles.views.sum(:views)
       @pie_chart_data[category.name]=category_total_views
     end
     @pie_chart_data["Blog"]=ViewsStatistic.all.where(:blog_id => !nil).sum(:views)

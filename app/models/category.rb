@@ -4,4 +4,5 @@ class Category < ActiveRecord::Base
 
   has_and_belongs_to_many :articles
   has_many :videos
+  has_many :views, through: :articles, source: :views_statistics
 end

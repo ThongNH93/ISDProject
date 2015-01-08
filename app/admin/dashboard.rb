@@ -21,6 +21,7 @@ ActiveAdmin.register_page "Dashboard" do
     #   end
     #   div paginate @history
     # end
+
     @metric =  ViewsStatistic.group_by_hour(:created_at,range: 24.hours.ago..Time.now).sum(:views)
     @pie_chart_data= Hash.new
     Category.all.each do |category|
@@ -29,6 +30,5 @@ ActiveAdmin.register_page "Dashboard" do
     end
     @pie_chart_data["Blog"]=ViewsStatistic.all.where(:blog_id => !nil).sum(:views)
     render :partial => 'metrics/line_chart', :locals => {:metric => @metric,:pie_chart_data  => @pie_chart_data}
-
   end # content
 end

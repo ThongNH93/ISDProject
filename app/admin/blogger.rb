@@ -2,7 +2,7 @@ ActiveAdmin.register Blogger do
 
   menu parent: 'Quản lý blog ', label: "Quản lý blogger"
 
-  permit_params :email, :blogger_level_id,:password, :first_name ,:last_name, :dob, :password, :phone, :address, :gender, :profile_image,:active
+  permit_params :email, :blogger_level_id, :password, :first_name , :last_name, :dob, :password, :phone, :address, :gender, :profile_image, :active
 
   filter :blog, label: 'Blog'
   filter :email, label: "Email"
