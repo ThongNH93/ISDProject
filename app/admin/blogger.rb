@@ -68,9 +68,8 @@ ActiveAdmin.register Blogger do
         row ('Ảnh đại diện'), :image do
           image_tag (blogger.profile_image.url), width: 100
         end
-        row('Cấp độ') {blogger.blogger_level.name}
-        row('Tên và tên'){blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)}
         row ('Cấp độ'){auto_link blogger.blogger_level}
+        row('Tên và tên'){blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)}
         row('Giới tính') {blogger.gender}
         row ('Email'){ blogger.email}
         row('Ngày sinh'){blogger.dob}
@@ -101,9 +100,30 @@ ActiveAdmin.register Blogger do
   end
 
   controller do
-
+    # def index
+    #   blogger_views=0
+    #   Blogger.all.each do |blogger|
+    #     blogger.blogs.each do |blog|
+    #       blogger_views += blog.views_statistics.sum(:views)
+    #     end
+    #     BloggerLevel.all.each do |level|
+    #       if level.views < blogger_views
+    #         blogger.update(:blogger_level_id => level.id)
+    #       end
+    #     end
+    #   end
+    # end
     def show
-      @blogger=Blogger.find(params[:id])
+      blogger_views=0
+      blogger=Blogger.find(params[:id])
+      blogger.blogs.each do |blog|
+        blogger_views += blog.views_statistics.sum(:views)
+      end
+      BloggerLevel.all.each do |level|
+        if level.views < blogger_views
+          blogger.update(:blogger_level_id => level.id)
+        end
+      end
       show!
     end
 

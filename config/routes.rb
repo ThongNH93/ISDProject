@@ -37,6 +37,9 @@ Rails.application.routes.draw do
   #blog comment
   post 'home/blog/:id', to: 'home#blog_comment', as: 'blog_comment'
 
+
+  get 'home/advertise', to: 'home#advertise', as: 'home_advertise'
+
   get 'home/blogger/:id/view_blog', to: 'home#blogger_view_blog', as: 'home_blogger_view_blog'
   get 'home/blogger/:id', to: 'home#blogger_account', as: 'home_blogger_account'
   get 'home/blogger/:id/upload', to: 'home#blogger_upload_article_form', as: 'home_blogger_upload_article_form'

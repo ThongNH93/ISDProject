@@ -221,6 +221,15 @@ class HomeController < ApplicationController
   end
   def blogger_account
     @blogger=Blogger.find(params[:id])
+    blogger_views=0
+    @blogger.blogs.each do |blog|
+      blogger_views += blog.views_statistics.sum(:views)
+    end
+    BloggerLevel.all.each do |level|
+      if level.views < blogger_views
+        @blogger.update(:blogger_level_id => level.id)
+      end
+    end
     @all_blogs=@blogger.blogs.joins(:views_statistics).where(:blogger_id => @blogger.id).order("views_statistics.views DESC").paginate(:page => params[:page], :per_page => 7).uniq
     @new_blogs=@blogger.blogs.where(:blogger_id => @blogger.id).order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
     @approved_blogs=@blogger.blogs.where(:blogger_id => @blogger.id).where(:status=> 'Duyệt').order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
@@ -344,6 +353,9 @@ class HomeController < ApplicationController
 
   end
 
+  def advertise
+    @ad_price_list= AdPriceList.all
+  end
   private
 # # Use callbacks to share common setup or constraints between actions.
   def set_categories
