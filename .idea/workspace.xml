@@ -2,7 +2,158 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ab4a655-905c-400c-a6dc-afab56dc5cfa" name="Default" comment="">
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_location\image\13\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_location\image\1\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_location\image\25\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_location\image\25\big5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_location\image\26\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_location\image\28\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_location\image\2\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\19\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\1\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\21\big5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\2\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\32\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\33\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\3\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\4\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\5\Untitled-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\5\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\ad_order\image\6\7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\10\27-efff2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\11\31a-220d6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\12\70-314e2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\12\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\13\big1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\14\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\15\big2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\1\1-5960a.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\1\1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\1\2014-03-29_14.16.11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\1\Thatbai1-55fbe.jpg" afterPath="" />
       <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\1\avatar.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\1\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\1\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\2\DTVN4-02e2d.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\2\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\2\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\2\ocdoc-4628-1420623798.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\3\0-7518-1420688273.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\3\CDV_12-12-14-82116.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\3\bg_body.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\3\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\3\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\4\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\4\big2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\4\chay12.4-158b3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\4\tag-reuters-1296-1420682955.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\5\IMG_8786-81524.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\5\Top-7-Tim-kiem-tai-nang-mua-1-5933-8529-1420423681.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\5\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\5\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\6\3-2e5e6.JPG" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\6\MG-0501-8664-1420631189.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\6\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\6\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\7\1-4b39e.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\7\article-image.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\7\giaothong-2215-1420595850.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\7\page1_img1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\8\7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\8\us.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\8\vlcsnap-2013-12-10-22h36m17s152.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\article\image\9\Anh1-f498b.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\1\big2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\1\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\1\big5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\1\blog-thumb-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\2\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\2\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\2\blog-thumb-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\3\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\4\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blog\image\5\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\1\avatar.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\1\avatar3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\1\big2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\1\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\1\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\1\big5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\1\cofback.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\2\avatar2.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\2\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\4\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\blogger\profile_image\5\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417266754-5860-9846\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417267103-5088-9757\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417267176-5088-2629\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417722218-4624-7207\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417788811-6140-0658\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417793645-7116-3394\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417793709-7116-9328\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1417875192-7044-8082\big2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418098779-1724-4249\avatar2.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418120069-3244-6483\article-image.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418275068-5508-7986\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418275133-5508-1186\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418275316-5508-8320\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418275337-5508-3689\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418275420-5508-2099\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418275444-5508-1605\bg1.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418309898-6228-4652\4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418310112-6228-8816\7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418310282-6228-3192\7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418310333-6228-3211\7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418310354-6228-8885\6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418310426-6228-0311\6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418310436-6228-4382\6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418313032-6228-0600\Untitled-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418325248-2800-7697\7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418325297-2800-0191\Untitled-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418362092-6244-6385\7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418362274-6244-8582\Untitled-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418481956-184-0815\6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418482246-184-8637\Untitled-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418722133-3852-1960\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418722169-3852-7225\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418723226-3852-2975\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418723294-3852-7818\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418765376-3908-1341\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418765925-3908-5995\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418766020-3908-2532\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418766026-3908-7437\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418884062-2356-2437\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1418912236-984-0044\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419044712-4300-7632\big5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419173077-4896-3891\blog-thumb-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419173130-4896-7953\blog-thumb-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419173180-4896-3630\blog-thumb-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419698079-5388-3969\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419698129-5388-5416\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419698366-5388-3483\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419698647-5388-0013\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419698657-5388-0989\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419698693-5388-4406\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419699357-5388-6541\big5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419774979-2592-0163\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1419775025-2592-4411\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1420693087-4152-0287\avatar.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1420705642-4000-1029\MG-0501-8664-1420631189.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1420733408-5596-5106\blog-thumb-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\tmp\1420733566-5596-7086\avatar.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\1\big3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\1\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\1\cofback.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\2\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\2\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\2\cofback.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\3\big5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\3\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\4\big2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\4\big4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\5\big7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\6\big6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\Git Hub\Projects\ISDProject\public\uploads\video\image\7\big4.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ISDProject.iws" />
@@ -50,50 +201,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/1.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1-5960a.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/1-5960a.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2014-03-29_14.16.11.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/2014-03-29_14.16.11.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="1420797643-1177627.jpg" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/1420797643-1177627.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="big3.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/big3.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="big4.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/big4.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Thatbai1-55fbe.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/Thatbai1-55fbe.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -244,24 +353,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ISDProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ISDProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -518,11 +609,11 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30016053" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30016053" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36217457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36217457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -914,36 +1005,6 @@
           <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/1-5960a.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/2014-03-29_14.16.11.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/big3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/big4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/Thatbai1-55fbe.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/uploads/article/image/1/1420797643-1177627.jpg">
