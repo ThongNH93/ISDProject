@@ -23,6 +23,7 @@ ActiveAdmin.register Blogger do
       f.input :dob, label: "Ngày sinh", :as => :datepicker
       f.input :email, label: "Email"
       f.input :password, label: "Mật khẩu"
+      f.input :password_confirmation, label: "Xác nhận mật khẩu"
       f.input :phone, label: "Điện thoại"
       f.input :address, label: "Địa chỉ"
       f.input :gender, label: "Giới tính", :as => :radio, :collection => ["Nam", "Nữ"]
@@ -34,6 +35,7 @@ ActiveAdmin.register Blogger do
 
   before_create do |blogger|
     blogger.active=false
+    blogger.save!
   end
   before_filter :only => :index do
     @per_page = 10
@@ -56,7 +58,7 @@ ActiveAdmin.register Blogger do
     column "Trạng thái", :active do |blogger|
       status_tag(blogger.active.eql?(true)? 'Active' :'Deactive', blogger.active.eql?(true)? :ok : :error)
     end
-    column "Ngày đăng", :created_at
+    column "Ngày tạo", :created_at
     column "Ngày sửa", :updated_at
     actions
   end
@@ -66,6 +68,7 @@ ActiveAdmin.register Blogger do
         row ('Ảnh đại diện'), :image do
           image_tag (blogger.profile_image.url), width: 100
         end
+        row('Cấp độ') {blogger.blogger_level.name}
         row('Tên và tên'){blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)}
         row ('Cấp độ'){auto_link blogger.blogger_level}
         row('Giới tính') {blogger.gender}

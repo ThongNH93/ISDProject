@@ -356,7 +356,8 @@ class HomeController < ApplicationController
   end
 
   def top_ad
-    @top_location=AdLocation.find_by("name = 'Top'")
+    @top_location=AdLocation.find_by("name = 'Top'").ad_order
+    # raise(@top_location.ordered.to_s)
   end
 
 end
