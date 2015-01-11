@@ -6,16 +6,15 @@
   <% end %>
 </div> <!-- / .current-page -->
 
-<article id="ccr-article">
+<article class="ccr-article" >
   <h1><%= @article.title %></h1>
 
   <div class="article-like-comment-date">
     Posted by <%= @article.author %> on <%= @article.created_at %>
 
   </div> <!-- /.article-like-comment-date -->
-
-
-  <%= @article.content.html_safe %>
+  <br>
+  <p class="blog-text"></p><%=  @article.content.html_safe %>
 
 </article> <!-- /#ccr-single-post -->
 

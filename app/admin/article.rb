@@ -79,8 +79,8 @@ ActiveAdmin.register Article do
   end
 
   show do |article|
-    panel "Chi tiết bải viết" do
-      div class: "ccr-article"  do
+    div  style:"width:800px"  do
+      div class: "ccr-article" do
         h1 article.title
         text_node "Post by "+ article.author+ " on "+ article.created_at.to_s
         text_node article.content.html_safe
@@ -88,9 +88,7 @@ ActiveAdmin.register Article do
     end
     @post = Article.find(params[:id])
     @versions = @post.versions
-    panel "Historia" do
-      table_for assigns[:versions]
-    end
+
   end
 
 
@@ -112,6 +110,6 @@ ActiveAdmin.register Article do
     end
 
   end
-  sidebar "Version", :partial => "admin/version", :only => :show
+  sidebar "Version", :partial => "admin/version", :only => :show, style: "margin-right:200px"
   sidebar "Kiểm duyệt nội dung", :partial => "admin/approve_article", :only => :show
 end

@@ -32,7 +32,7 @@ gem 'devise'
 
 # ActiveAdmin
 gem 'activeadmin', github: 'activeadmin'
-
+gem 'arbre'
 gem 'ckeditor'
 
 # command: rails generate uploader Image

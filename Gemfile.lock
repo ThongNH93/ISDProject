@@ -213,6 +213,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  arbre
   bcrypt-ruby
   cancan
   carrierwave
