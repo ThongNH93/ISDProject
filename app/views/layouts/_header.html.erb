@@ -72,7 +72,7 @@
           <%= form_tag home_search_path, method: :get,:class => "form-inline",style: "margin-top: 3px" do |f|  %>
             <li>
               <span class='input-group-btn' >
-                <%= text_field_tag :search, params[:search],placeholder: 'Search province',class:"form-control" %>
+                <%= text_field_tag :search, params[:search],placeholder: 'Search' ,class:"form-control" %>
                 <%= submit_tag 'Search', class: 'btn btn-warning' %>
               </span>
             </li>
