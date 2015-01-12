@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Rails ISDProject: default" uuid="8898c8f6-456d-4770-8ef4-2993d0797e2e">
+  <data-source source="LOCAL" name="Rails ISDProject: default" uuid="94a6bb50-4ac7-451a-83fc-6cc640c1f0fd">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
-  <data-source source="LOCAL" name="Rails ISDProject: development" uuid="8e6fd5f2-6c65-4eb5-a6b4-860db9971d07">
+  <data-source source="LOCAL" name="Rails ISDProject: development" uuid="e4b24d2d-9493-402e-9f67-26e713168993">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
-  <data-source source="LOCAL" name="Rails ISDProject: test" uuid="e8e45705-78a1-4f89-9805-ace57d060b85">
+  <data-source source="LOCAL" name="Rails ISDProject: test" uuid="3e945d47-9513-47cf-9b0c-eac7492dd291">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
-  <data-source source="LOCAL" name="Rails ISDProject: production" uuid="e91d42e0-fad0-4006-934c-c7de8fbe10bc">
+  <data-source source="LOCAL" name="Rails ISDProject: production" uuid="1ddc5386-1dea-48f8-b460-f45b49c3cf1d">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>
