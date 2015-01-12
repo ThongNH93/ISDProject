@@ -64,13 +64,22 @@ ActiveAdmin.register Blog do
   end
 
   show do |blog|
-    panel "Chi tiết bài viết" do
-      div class: "ccr-article"  do
-        h1 blog.title
-        text_node "Post by "+ blog.author+ " on "+ blog.created_at.to_s
+    div  style:"width:800px"  do
+      div class: "ccr-article" do
+        h1 style:"color: #0063dc; font-family: 'Times New Roman'; font-size: 2em" do
+          blog.title
+        end
+        div "Post by "+ blog.author+ " on "+ blog.created_at.to_s
+        br
+        div style:"color: #40454D; font-family: 'Times New Roman'; font-size: 1.4em" do
+          blog.description
+        end
+        br
         text_node blog.content.html_safe
       end
     end
+    @post = Article.find(params[:id])
+    @versions = @post.versions
   end
 
 

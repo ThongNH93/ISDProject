@@ -178,6 +178,7 @@ class HomeController < ApplicationController
       @categories.each do |category|
         videos=category.videos.joins(:status).where('statuses.priority >= ?',approved_priority).order('videos.created_at DESC').order('statuses.priority DESC').limit(4)
         @tong_hop_videos[category]=videos
+
       end
 
       @side_bar_1st=AdLocation.find_by("name = 'Sidebar 1st - Trang danh sách video'").ad_order

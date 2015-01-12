@@ -1764,21 +1764,7 @@
           }
       </script>
 
-      <ul class="info_user-cat-ul" style="margin-left: 60px">
-        <li>&nbsp;</li>
-        <li >Cấp độ: <%= @blogger.blogger_level.name %></li>
-        <li style="width: 60px; margin-left: 50px"><img src=<%= image_path(@blogger.blogger_level.avatar) %> height="50px" width="50px"></li>
-        <li>Thành viên từ: <span><%= @blogger.created_at.to_date %></span> </li>
-        <li>Email: <span><%= @blogger.email%></span></li>
-        <li>Giới tính: <span> <%= @blogger.gender.present?? @blogger.gender : "Chưa có " %></span></li>
-        <li>Địa chỉ: <span> <%= @blogger.address.present?? @blogger.address : "Chưa có " %></span></li>
-        <li>Số điện thoại: <span><%= @blogger.phone.present?? @blogger.phone : "Chưa có " %></span></li>
-        <li>&nbsp;</li>
-        <li><%= link_to "Cập nhật thông tin cá nhân",edit_blogger_registration_path  %></li>
-        <li><%= link_to "Thay đổi mật khẩu", home_blogger_change_password_form_path %></a></li>
-        <li><%= link_to "Đăng bài", home_blogger_upload_article_form_path%></li>
-
-      </ul>
+      <%= render 'blog/left_sidebar' %>
 
     </div>
 

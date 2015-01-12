@@ -41,41 +41,9 @@
           <div class="form-group">
             <label for="password" class="col-md-1 control-label">Nội dung</label>
             <div class="col-lg-11">
-              <%= f.text_area :content,:class => 'ckeditor', name:"content",id:"content" %>
+              <%= f.text_area :content,:class => 'ckeditor', name:"content",id:"content",:width=>'400px', :height=>'200px' %>
 
               <script type='text/javascript' charset='UTF-8'>
-
-//                  $("#submit").click(function(){
-//                      CKEDITOR.instances.content.updateElement();
-//                      $("#upload_form").validate({
-//                          rules: {
-//                              content: "required"
-//                          },
-//                          messages: {
-//                              content: "Please add some code before continue"
-//                          },
-//                          errorPlacement: function(error, element){
-//                              $(element).each(function (){
-//                                  $(this).parent('div').find('p.error').html(error);
-//                              });
-//                          }
-//                      });
-//                  });
-//
-//                    jQuery(function($){
-//                        $("#upload_form").validate({
-//                            event: 'blur',
-//                            rules: {
-//                                content: {
-//                                    required: function(textarea) {
-//                                        CKEDITOR.instances[textarea.id].updateElement(); // update textarea
-//                                        var editorcontent = textarea.value.replace(/<[^>]*>/gi, ''); // strip tags
-//                                        return editorcontent.length === 0;
-//                                    }
-//                                }
-//                            }
-//                        });
-//                    });
 
                   $(document).ready(function(){
                       $('form[data-remote]').bind("ajax:before", function(){

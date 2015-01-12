@@ -29,7 +29,7 @@ ActiveAdmin.register Article do
       f.input :categories, label: "Chuyên mục", :as => :check_boxes,      :collection => Category.all
       f.input :description, label: "Tóm tắt"
       f.input :author, label: "Tác giả"
-      f.input :content, label: "Nội dung", input_html: {class: 'ckeditor'}
+      f.input :content, label: "Nội dung", input_html: {class: 'ckeditor' }
       f.input :image, label:"Hình ảnh", :as => :file
       # f.input :image, :hint => f.template.image_tag(f.object.image.url(:thumb))
 
@@ -81,8 +81,15 @@ ActiveAdmin.register Article do
   show do |article|
     div  style:"width:800px"  do
       div class: "ccr-article" do
-        h1 article.title
-        text_node "Post by "+ article.author+ " on "+ article.created_at.to_s
+        h1 style:"color: #0063dc; font-family: 'Times New Roman'; font-size: 2em" do
+          article.title
+        end
+        div "Post by "+ article.author+ " on "+ article.created_at.to_s
+        br
+        div style:"color: #40454D; font-family: 'Times New Roman'; font-size: 1.4em" do
+          article.description
+        end
+        br
         text_node article.content.html_safe
       end
     end

@@ -1,7 +1,10 @@
 <section id="ccr-left-section" class="col-md-8">
 
   <div class="current-page">
-    <a href="index.html"><i class="fa fa-home"></i> <i class="fa fa-angle-double-right"></i></a> Blog 3
+    <%= link_to home_index_path do %>
+        <i class="fa fa-home"></i> <i class="fa fa-angle-double-right"></i>
+    <% end %>
+    <%= link_to ' Blog', home_blogs_path , class: 'active'%>
   </div> <!-- / .current-page -->
   <% if @blogs.present?%>
     <%@blogs.each_with_index do |blog,i|%>

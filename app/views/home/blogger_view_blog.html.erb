@@ -1597,19 +1597,18 @@
       </ul>
 
       <br><br class="clear_both"><br class="clear_both"><br class="clear_both">
-      <article id="ccr-article">
-        <h1><%= @blog.title %></h1>
-
+      <article class="ccr-article" >
+        <h1 style="color: #0063dc; font-family: 'Times New Roman'; font-size: 2em"><%= @blog.title %></h1>
+        <br>
         <div class="article-like-comment-date">
           Posted by <%= @blog.author %> on <%= @blog.created_at %>
-
         </div> <!-- /.article-like-comment-date -->
-
-
-        <%= @blog.content.html_safe %>
-
+        <br>
+        <p style="color: #40454D; font-family: 'Times New Roman'; font-size: 1.4em"><%= @blog.description  %></p>
+        <br>
+        <%=  @blog.content.html_safe %>
       </article> <!-- /#ccr-single-post -->
-
+      <br>
     </div>
 
     <div class="profi-cat-right">
@@ -1633,21 +1632,7 @@
               })
           }
       </script>
-
-      <ul class="info_user-cat-ul" style="margin-left: 60px">
-        <li>&nbsp;</li>
-        <li>Thành viên từ: <span><%= @blogger.created_at.to_date %></span> </li>
-        <li>Email: <span><%= @blogger.email%></span></li>
-        <li>Giới tính: <span> <%= @blogger.gender.present?? @blogger.gender : "Chưa có " %></span></li>
-        <li>Địa chỉ: <span> <%= @blogger.address.present?? @blogger.address : "Chưa có " %></span></li>
-        <li>Số điện thoại: <span><%= @blogger.phone.present?? @blogger.phone : "Chưa có " %></span></li>
-        <li>&nbsp;</li>
-        <li><%= link_to "Cập nhật thông tin cá nhân",edit_blogger_registration_path  %></li>
-        <li><%= link_to "Thay đổi mật khẩu", home_blogger_change_password_form_path %></a></li>
-        <li><%= link_to "Đăng bài", home_blogger_upload_article_form_path%></li>
-
-      </ul>
-
+      <%= render 'blog/left_sidebar' %>
     </div>
 
     <div class="clear_both"></div>

@@ -1,24 +1,27 @@
 <section id="ccr-left-section" class="col-md-8">
 
 <div class="current-page">
-  <% link_to home_index_path do %>
-      <i class="fa fa-home"></i> <i class="fa fa-angle-double-right"></i></a> <a href="blog.html">Blog <i class="fa fa-angle-double-right"></i></a> Single
+  <%= link_to home_index_path do %>
+      <i class="fa fa-home"></i> <i class="fa fa-angle-double-right"></i>
   <% end %>
+  <%= link_to @article.categories.first.name, home_articles_path(@article.categories.first.id) %>
+
 </div> <!-- / .current-page -->
 
 <article class="ccr-article" >
-  <h1><%= @article.title %></h1>
-
+  <h1 style="color: #0063dc; font-family: 'Times New Roman'; font-size: 2em"><%= @article.title %></h1>
+  <br>
   <div class="article-like-comment-date">
     Posted by <%= @article.author %> on <%= @article.created_at %>
-
   </div> <!-- /.article-like-comment-date -->
   <br>
-  <p class="blog-text"></p><%=  @article.content.html_safe %>
+  <p style="color: #40454D; font-family: 'Times New Roman'; font-size: 1.4em"><%= @article.description  %></p>
+  <br>
+  <%=  @article.content.html_safe %>
 
 </article> <!-- /#ccr-single-post -->
 
-
+<br>
 <section id="ccr-article-related-post">
   <div class="ccr-gallery-ttile">
     <span class="bottom"></span>
@@ -68,8 +71,6 @@
      <% end %>
     </li> <!-- /.comment -->
   </ol> <!-- /.commentlist -->
-
-
 
 </section> <!-- /#ccr-commnet -->
 
