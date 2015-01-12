@@ -9,13 +9,13 @@
 <article id="ccr-article">
   <h1><%= @article.title %></h1>
 
-  <div class="article-like-comment-date">
-    Posted by <%= @article.author %> on <%= @article.created_at %>
+  <div class="article-like-comment-date" style="color:#0033cc">
+    Posted by <%= @article.author%> on <%= @article.created_at %>
 
   </div> <!-- /.article-like-comment-date -->
 
 
-  <%= @article.content.html_safe %>
+  <span><%= @article.content.html_safe %></span>
 
 </article> <!-- /#ccr-single-post -->
 
