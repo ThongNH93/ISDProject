@@ -9,9 +9,10 @@ class Blogger::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @blogger=Blogger.create(blogger_params)
+    @blogger.update(:active => true)
+  end
 
   # GET /resource/edit
   # def edit
