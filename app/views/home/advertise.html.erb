@@ -1,59 +1,7 @@
 <div class="container">
-  <div class="col-md-10">
+  <div class="col-md-8">
 
-    <table id="table-style" data-url="data1.json" data-height="400" data-row-style="rowStyle" class="table table-bordered" style="margin-top: 50px">
-      <thead>
-      <tr>
-        <th data-field="id" class="col-md-1">STT </th>
-        <th data-field="name" class="col-md-4">
-          <i class="glyphicon glyphicon-star"></i>
-          Vị trí
-        </th>
-        <th data-field="price" class="col-md-2">
-          <i class="glyphicon glyphicon-euro"></i>
-          Giá
-        </th>
-        <th data-field="price" class="col-md-3">
-          <i class="glyphicon glyphicon-time"></i>
-          Thời gian
-        </th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @ad_price_list.each do |price| %>
-        <tr>
-            <td><%= price.id %></td>
-            <td><%= price.ad_location.name %></td>
-            <td><%= price.price %> VNĐ</td>
-            <td><%= price.duration %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-    
-    <img src=<%= image_path("ad-description-category.jpg")%> >
-    <img src=<%= image_path("ad-description-index.jpg")%> >
 
   </div>
 
 </div>
-<script>
-    $(function () {
-        $('#hover, #striped, #condensed').click(function () {
-            var classes = 'table';
-
-            if ($('#hover').prop('checked')) {
-                classes += ' table-hover';
-            }
-            if ($('#condensed').prop('checked')) {
-                classes += ' table-condensed';
-            }
-            $('#table-style').bootstrapTable('destroy')
-                    .bootstrapTable({
-                        classes: classes,
-                        striped: $('#striped').prop('checked')
-                    });
-        });
-    });
-</script>
