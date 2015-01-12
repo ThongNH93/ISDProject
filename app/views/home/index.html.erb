@@ -142,8 +142,8 @@
           </section> <!-- /#featured-sports-news -->
         <%else%>
           <ul>
-            <li>
-              <div class="ccr-thumbnail">
+            <li style="height: 170px">
+              <div class="ccr-thumbnail" >
                 <img src="<%= image_path(article.image) %>" alt="Thumb" height="100px" width="170px">
                 <p><%= link_to 'Read More', home_article_path(article.id) %></p>
               </div>
