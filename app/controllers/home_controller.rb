@@ -11,7 +11,7 @@ class HomeController < ApplicationController
         article_ids=Array.new
         @hot_news=Article.joins(:status,:views_statistics).where('statuses.priority >= ?',approved_priority).order('statuses.priority DESC').order('views_statistics.views DESC').limit(4).uniq
         article_ids=@hot_news.ids
-        @latest_news=  Article.joins(:status).where('statuses.priority >= ?',approved_priority).where('articles.id not IN (?) ',article_ids).order('articles.created_at DESC').limit(4).uniq
+        @latest_news=  Article.joins(:status).where('statuses.priority >= ?',approved_priority).where('articles.id not IN (?) ',article_ids).order('articles.created_at DESC').limit(6).uniq
         article_ids+=@latest_news.ids
 
         @categories.each do |category|
