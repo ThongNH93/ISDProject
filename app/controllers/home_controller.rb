@@ -187,8 +187,8 @@ class HomeController < ApplicationController
   end
   def videos
     approved_priority=Status.find_by(:name => "Duyệt").priority
-    category=Category.find(params[:id])
-    @videos=category.videos.joins(:status).where('statuses.priority >= ?',approved_priority).order('videos.created_at DESC').order('statuses.priority DESC').paginate(:page => params[:page], :per_page => 10).uniq
+    @category=Category.find(params[:id])
+    @videos=@category.videos.joins(:status).where('statuses.priority >= ?',approved_priority).order('videos.created_at DESC').order('statuses.priority DESC').paginate(:page => params[:page], :per_page => 10).uniq
     @popular_videos= Video.joins(:status).where('statuses.priority >= ?',approved_priority).order('videos.created_at DESC').limit(5).uniq
 
     @side_bar_1st=AdLocation.find_by("name = 'Sidebar 1st - Trang danh sách video'").ad_order
