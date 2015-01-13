@@ -42,11 +42,9 @@
 
       <div class="collapse navbar-collapse ccr-nav-below-main">
         <ul class="nav navbar-nav">
-          <li style="margin-left: -20px" class=<%= @tong_hop_videos.present?? "active" : ""  %> ><%= link_to "Tổng hợp", home_tong_hop_video_path %></li>
+          <li><%= link_to "Tổng hợp", home_tong_hop_video_path %></li>
           <% @categories.each do |category| %>
-            <li class=<%= @category.present?? @category.name.eql?(category.name)? "active" : "" : "" %>>
-
-              <%= link_to category.name, home_videos_path(category.id) %></li>
+            <li><%= link_to category.name, home_videos_path(category.id) %></li>
           <% end %>
         </ul> <!-- /.nav /.navbar-nav -->
       </div>
