@@ -1742,31 +1742,9 @@
 
     </div>
 
-    <div class="profi-cat-right">
-      <h1 class="title_h1_st2"><%= @blogger.first_name.present?? @blogger.first_name.to_s.concat(" "+@blogger.last_name) : "Chưa có thông tin"%></h1>
-      <div class="avatar-box-sty">
-        <img src=<%= image_path(@blogger.profile_image) %> height="185" width="185">
-      </div>
 
-      <script type="text/javascript">
-          function refresh_balance() {
-              $.ajax({
-                  type: 'POST',
-                  url: http + 'user/update_balance',
-                  data: "",
-                  dataType: 'json',
-                  success: function(result) {
-                      if (result.msg == "success") {
-                          $("#current_balance").html(result.balance);
-                      }
-                  }
-              })
-          }
-      </script>
 
-      <%= render 'blog/left_sidebar' %>
-
-    </div>
+    <%= render 'blog/left_sidebar' %>
 
     <div class="clear_both"></div>
     <div class="w960_h20 clear_both"></div>

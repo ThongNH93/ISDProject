@@ -1,23 +1,23 @@
 <% if !@versions.empty? %>
-    <h3>Current Version: <%= @versions.length %></h3>
+    <h3>Phiên bản hiện tại: <%= @versions.length %></h3>
 
-    <b>Created At:</b>
+    <b>Ngày tạo:</b>
     <%= @versions.last.created_at%>
     <br>
-    <b>Author</b>: <%=  AdminUser.find(@versions.last.whodunnit).email %>
+    <b>Tác giả</b>: <%=  AdminUser.find(@versions.last.whodunnit).email %>
     <br>
     <% if @versions.length.to_i > 1 %>
         <% if params[:version].to_i > 1 || !params[:version] %>
-            <%= link_to "Previous version", {:version => (params[:version] || @versions.length).to_i - 1}%>
+            <%= link_to "Phiên bản trước đó", {:version => (params[:version] || @versions.length).to_i - 1}%>
             <br>
         <% end %>
         <% if params[:version] %>
-            <h3>This is <%= "#{params[:version]}"%> version</h3>
+            <h3>Đây là phiên bản thứ <%= "#{params[:version]}"%> </h3>
 
-            <b>Modify at:</b>
+            <b>Ngày chỉnh sửa:</b>
             <%= @versions[(params[:version].to_i - 1)].created_at %>
             <br>
-            <b>Author</b>:
+            <b>Tác giả</b>:
             <%=AdminUser.find(@versions[(params[:version].to_i - 1)].whodunnit).email %>
             <br>
 
@@ -25,5 +25,5 @@
         <% end %>
     <% end %>
 <% else %>
-    <p>This item does not have any registered version.</p>
+    <p>Phiên bản duy nhất.</p>
 <% end %>

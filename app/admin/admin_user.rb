@@ -5,10 +5,9 @@ ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation, :first_name, :last_name, :gender, :dob, :address, :phone, :profile_image
 
   index title:"Danh sách admin" do
-    selectable_column
     id_column
     column "Hình ảnh", :image do |admin|
-      image_tag (admin.profile_image.url), width: 100
+      image_tag (admin.profile_image.present?? admin.profile_image : 'avatar128x128.jpg'), width: 100
     end
     column  "Họ và tên" do |admin|
       admin.first_name.to_s.concat(" "+admin.last_name.to_s)
@@ -22,10 +21,10 @@ ActiveAdmin.register AdminUser do
     actions
   end
 
-  filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
+  filter :last_name, label: "Tên"
+  filter :email, label: "Email"
+  filter :address, label: "Địa chỉ"
+  filter :gender, label: "Giới tính"
 
   form(:html => { :multipart => true }) do |f|
     f.inputs "admin" do
@@ -47,7 +46,7 @@ ActiveAdmin.register AdminUser do
     panel "Thông tin admin" do
       attributes_table_for admin_user  do
         row ('Ảnh đại diện'), :image do
-          image_tag (admin_user.profile_image), width: 100
+          image_tag (admin_user.profile_image.present?? admin_user.profile_image : 'avatar128x128.jpg'), width: 100
         end
         row('Chức danh'){admin_user.role.name}
         row('Họ và tên'){admin_user.first_name.to_s.concat(" "+admin_user.last_name.to_s)}

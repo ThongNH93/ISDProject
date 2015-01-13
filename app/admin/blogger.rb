@@ -2,7 +2,7 @@ ActiveAdmin.register Blogger do
 
   menu parent: 'Quản lý blog ', label: "Quản lý blogger"
 
-  permit_params :email, :blogger_level_id, :password, :first_name , :last_name, :dob, :password, :phone, :address, :gender, :profile_image, :active
+  permit_params :email, :blogger_level_id, :password, :first_name , :last_name, :dob, :password_confirmation, :phone, :address, :gender, :profile_image, :active
 
   filter :blog, label: 'Blog'
   filter :email, label: "Email"
@@ -41,26 +41,29 @@ ActiveAdmin.register Blogger do
     @per_page = 10
   end
   index title:"Danh sách blogger" do
-    selectable_column
-    id_column
-    column "Hình ảnh", :image do |blogger|
-      image_tag (blogger.profile_image.url), width: 100
+    begin
+      selectable_column
+      id_column
+      column "Hình ảnh", :image do |blogger|
+        image_tag (blogger.profile_image.url), width: 100
+      end
+      column  "Họ và tên" do |blogger|
+        blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)
+      end
+      column "Cấp độ" do |blogger|
+        blogger.blogger_level.name
+      end
+      column  "Ngày sinh", :dob
+      column  "Email", :email
+      column  "Giới tính", :gender
+      column "Trạng thái", :active do |blogger|
+        status_tag(blogger.active.eql?(true)? 'Active' :'Deactive', blogger.active.eql?(true)? :ok : :error)
+      end
+      column "Ngày tạo", :created_at
+      column "Ngày sửa", :updated_at
+      actions
+    rescue
     end
-    column  "Họ và tên" do |blogger|
-      blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)
-    end
-    column "Cấp độ" do |blogger|
-      blogger.blogger_level.name
-    end
-    column  "Ngày sinh", :dob
-    column  "Email", :email
-    column  "Giới tính", :gender
-    column "Trạng thái", :active do |blogger|
-      status_tag(blogger.active.eql?(true)? 'Active' :'Deactive', blogger.active.eql?(true)? :ok : :error)
-    end
-    column "Ngày tạo", :created_at
-    column "Ngày sửa", :updated_at
-    actions
   end
   show  do |blogger|
     panel "Thông tin blogger" do

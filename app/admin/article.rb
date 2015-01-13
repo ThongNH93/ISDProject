@@ -46,7 +46,7 @@ ActiveAdmin.register Article do
     end
   end
   before_filter :only => :index do
-    @per_page = 6
+    @per_page = 10
   end
 
   index title:"Danh sách bài viết" do
@@ -108,7 +108,7 @@ ActiveAdmin.register Article do
       show! #it seems to need this
     end
     def status
-      # raise("aa")
+      raise(params['/admin/articles/' + @id][:status_id])
       @id = params[:id]
       @status = params['/admin/articles/' + @id][:status_id]
       @article = Article.find(@id)
