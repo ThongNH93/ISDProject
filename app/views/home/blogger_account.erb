@@ -1630,6 +1630,11 @@
                   </section>
               <% end %>
           <%end %>
+
+          <div class="clearfix"></div>
+          <div class="flickr_pagination" >
+            <%= will_paginate @all_blogs,:container => false %>
+          </div>
         </div>
         <div class="tab-pane" id="new_blogs">
           <% if @new_blogs.present?%>
@@ -1664,6 +1669,10 @@
                   </section>
               <% end %>
           <%end %>
+          <div class="clearfix"></div>
+          <div class="flickr_pagination" >
+            <%= will_paginate @new_blogs,:container => false %>
+          </div>
         </div>
         <div class="tab-pane" id="approved_blogs">
           <% if @approved_blogs.present?%>
@@ -1698,6 +1707,10 @@
                   </section>
               <% end %>
           <%end %>
+          <div class="clearfix"></div>
+          <div class="flickr_pagination" >
+            <%= will_paginate @approved_blogs,:container => false %>
+          </div>
         </div>
         <div class="tab-pane" id="unapproved_blos">
           <% if @unapproved_blogs.present?%>
@@ -1732,14 +1745,13 @@
                   </section>
               <% end %>
           <%end %>
+          <div class="clearfix"></div>
+          <div class="flickr_pagination" >
+            <%= will_paginate @unapproved_blogs,:container => false %>
+          </div>
         </div>
        <!--</div>-->
       </div>
-
-      <div class="flickr_pagination" >
-        <%= will_paginate @all_blogs,:container => false %>
-      </div>
-
     </div>
 
 

@@ -5,7 +5,7 @@ ActiveAdmin.register ViewsStatistic do
   before_filter :skip_sidebar!, :only => :index
 
   index title:"Thống kê truy cập trang web" do
-    @categories
+
     @metric =  ViewsStatistic.group_by_day(:created_at).sum(:views)
     # @pie_chart_data= ViewsStatistic.group(:created_at).sum(:views)
     @pie_chart_data= Hash.new

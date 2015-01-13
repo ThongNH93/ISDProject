@@ -42,9 +42,11 @@
 
       <div class="collapse navbar-collapse ccr-nav-below-main">
         <ul class="nav navbar-nav">
-          <li><%= link_to "Tổng hợp", home_tong_hop_video_path %></li>
+          <li style="margin-left: -20px" class=<%= @tong_hop_videos.present?? "active" : ""  %> ><%= link_to "Tổng hợp", home_tong_hop_video_path %></li>
           <% @categories.each do |category| %>
-            <li><%= link_to category.name, home_videos_path(category.id) %></li>
+              <li class=<%= @category.present?? @category.name.eql?(category.name)? "active" : "" : "" %>>
+
+                <%= link_to category.name, home_videos_path(category.id) %></li>
           <% end %>
         </ul> <!-- /.nav /.navbar-nav -->
       </div>
@@ -65,7 +67,7 @@
         <% @tong_hop_videos.each do |category, videos| %>
             <% videos.each_with_index do |video, j| %>
 
-                    <li class="span3" style="margin-top: 15px">
+                    <li class="span3" style="margin-bottom: 15px">
                       <div class="thumbnail">
                         <a class='youtube' href="http:<%= video.video%>">
                         <img src=<%= image_path(video.image) %> alt="300x200" width="300px" height="130px">
@@ -114,6 +116,8 @@
           <%= will_paginate @videos,:container => false %>
         </div>
     <% end %>
+    <div class="clearfix"></div>
+
   </div>
     <%=render 'layouts/sidebar'  %>
 

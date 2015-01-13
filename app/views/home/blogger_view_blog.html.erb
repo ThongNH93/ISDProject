@@ -1588,15 +1588,6 @@
             <p class="success" style="color: red"><%= alert %></p>
           </div>
       <% end %>
-
-      <ul class="nav navbar-nav">
-        <li><h1 class="title_h1_st1 active"><%= link_to "Tất cả",class:"title_tabs_a "%></h1></li>
-        <li><h1 class="title_h1_st1"> <%= link_to "Mới đăng",class:"title_tabs_a"%></h1></li>
-        <li><h1 class="title_h1_st1"> <%= link_to "Đã duyệt",class:"title_tabs_a"%></h1></li>
-        <li><h1 class="title_h1_st1"> <%= link_to "Chờ duyệt",class:"title_tabs_a"%> </h1></li>
-      </ul>
-
-      <br><br class="clear_both"><br class="clear_both"><br class="clear_both">
       <article class="ccr-article" >
         <h1 style="color: #0063dc; font-family: 'Times New Roman'; font-size: 2em"><%= @blog.title %></h1>
         <br>
@@ -1608,14 +1599,14 @@
         <br>
         <%=  @blog.content.html_safe %>
       </article> <!-- /#ccr-single-post -->
-      <br>
+
+      <div style="float: right; margin-top: 20px; margin-bottom: 20px">
+        <span class="btn btn-warning"><%= link_to "Quay lại", home_blogger_account_path  %></span>
+        <span class="btn btn-warning"><%= link_to "Chỉnh sửa", home_blogger_view_blog_path(@blog.id)  %></span>
+      </div>
     </div>
 
     <div class="profi-cat-right">
-      <h1 class="title_h1_st2"><%= @blogger.first_name.present?? @blogger.first_name.to_s.concat(" "+@blogger.last_name) : "Chưa có thông tin"%></h1>
-      <div class="avatar-box-sty">
-        <img src=<%= image_path(@blogger.profile_image) %> height="185" width="185">
-      </div>
 
       <script type="text/javascript">
           function refresh_balance() {

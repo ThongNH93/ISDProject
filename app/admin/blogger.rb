@@ -45,7 +45,7 @@ ActiveAdmin.register Blogger do
       selectable_column
       id_column
       column "Hình ảnh", :image do |blogger|
-        image_tag (blogger.profile_image.url), width: 100
+        image_tag (blogger.profile_image.present?? blogger.profile_image : 'avatar128x128.jpg'), width: 100
       end
       column  "Họ và tên" do |blogger|
         blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)
@@ -69,7 +69,7 @@ ActiveAdmin.register Blogger do
     panel "Thông tin blogger" do
       attributes_table_for blogger  do
         row ('Ảnh đại diện'), :image do
-          image_tag (blogger.profile_image.url), width: 100
+          image_tag (blogger.profile_image.present?? blogger.profile_image : 'avatar128x128.jpg'), width: 100
         end
         row('Cấp độ') {blogger.blogger_level.name}
         row('Tên và tên'){blogger.first_name.to_s.concat(" "+blogger.last_name.to_s)}

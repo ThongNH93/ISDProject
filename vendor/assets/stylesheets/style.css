@@ -70,7 +70,14 @@ Tags:
 
 /* 1.0 - Common Styles
 ---------------------------------------------------------------------- */
-
+.navbar-nav > li.active > a {
+    background-color: #eea640;
+    color: #ffffff;
+}
+.profi-cat-left .nav-tabs > li.active > a{
+    background-color: #eea640;
+    color: #ffffff;
+}
 @font-face
 {
 font-family: Tahoma;
