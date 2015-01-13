@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4115586055">
-    <data-source source="LOCAL" name="Rails ISDProject: default" uuid="fb1637fa-1916-4c83-8c85-b490dcab6598">
+  <component name="DataSourceManagerImpl" format="xml" hash="889897936">
+    <data-source source="LOCAL" name="Rails ISDProject: default" uuid="c0f3d02c-2758-46df-8d44-95bc11ec5570">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
-    <data-source source="LOCAL" name="Rails ISDProject: development" uuid="cfed573b-eb33-4aa5-8a00-c7ae491fa7b6">
+    <data-source source="LOCAL" name="Rails ISDProject: development" uuid="8c33b7bc-883c-4833-8561-8f95de1f8583">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
-    <data-source source="LOCAL" name="Rails ISDProject: test" uuid="bad18194-31ca-448a-91de-f822fe8c1955">
+    <data-source source="LOCAL" name="Rails ISDProject: test" uuid="15dae5cd-7c58-42ea-bba8-28783a45dfdd">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
-    <data-source source="LOCAL" name="Rails ISDProject: production" uuid="ae9fd509-1073-42b6-b2b3-8ee432afd240">
+    <data-source source="LOCAL" name="Rails ISDProject: production" uuid="2c9a6bb6-b9a9-437f-a5cd-78a9556fa93c">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/isdproject</jdbc-url>
       <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
   </component>

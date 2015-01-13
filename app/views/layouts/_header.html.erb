@@ -5,23 +5,21 @@
         <nav class="top-menu">
           <ul class="left-top-menu">
             <li><%=link_to 'Home', home_index_path, id: 'link'%></li>
-            <li><%=link_to 'Quảng cáo', home_advertise_path, id: 'link'%></li>
-
           </ul><!-- /.left-top-menu -->
 
           <ul class="right-top-menu pull-right">
             <% if blogger_signed_in? %>
-                <li><%= link_to current_blogger.email, home_blogger_account_path(current_blogger.id), method: :get %></li>
-                <li style="margin-top: 0px"><%= link_to "Logout",destroy_blogger_session_path, method: :delete %></li>
+               <li><%= link_to current_blogger.email, home_blogger_account_path(current_blogger.id), method: :get %></li>
+               <li style="margin-top: 0px"><%= link_to "Logout",destroy_blogger_session_path, method: :delete %></li>
             <% else %>
                 <li><%= link_to "Sign in", new_blogger_session_path  %></li>
                 <li style="margin-top: 0px" ><%= link_to 'Sign up', new_blogger_registration_path, id: 'link'%></li>
             <% end %>
             <!--<li>-->
-            <!--<form class="form-inline" role="form" action="#">-->
-            <!--<input type="search" placeholder="Search here..." required>-->
-            <!--<button type="submit"><i class="fa fa-search"></i></button>-->
-            <!--</form>-->
+              <!--<form class="form-inline" role="form" action="#">-->
+                <!--<input type="search" placeholder="Search here..." required>-->
+                <!--<button type="submit"><i class="fa fa-search"></i></button>-->
+              <!--</form>-->
             <!--</li>-->
           </ul> <!--  /.right-top-menu -->
         </nav> <!-- /.top-menu -->
@@ -33,10 +31,10 @@
     <div class="container">
       <div class="site-logo">
         <%= link_to home_index_path, class: "navbar-brand" do%>
-            <img src="<%= image_path("logo1.png") %>" alt="Side Logo" />
-            <h1 style="color:#27a9e1">Daily <span>News</span></h1>
-            <h3>The Daily News Source</h3>
-        <%end%>
+          <img src="<%= image_path("logo1.png") %>" alt="Side Logo" />
+          <h1 style="color:#27a9e1">Daily <span>News</span></h1>
+          <h3>The Daily News Source</h3>
+         <%end%>
       </div> <!-- / .navbar-header -->
 
       <div class="add-space">
@@ -69,16 +67,16 @@
             <%end %>
             <li><%= link_to 'Blogs', home_blogs_path %></li>
 
-            <%= form_tag home_search_path, method: :get,:class => "form-inline",style: "margin-top: 3px" do |f|  %>
-                <li>
+          <%= form_tag home_search_path, method: :get,:class => "form-inline",style: "margin-top: 3px" do |f|  %>
+            <li>
               <span class='input-group-btn' >
                 <%= text_field_tag :search, params[:search],placeholder: 'Search province',class:"form-control" %>
                 <%= submit_tag 'Search', class: 'btn btn-warning' %>
               </span>
-                </li>
-            <% end %>
+            </li>
+          <% end %>
           </ul>
-        </div><!-- /  .collapse .navbar-collapse  -->
+            </div><!-- /  .collapse .navbar-collapse  -->
 
       </div>	<!-- /.container -->
     </nav> <!-- /.main-menu -->

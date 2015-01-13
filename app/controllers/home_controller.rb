@@ -30,7 +30,7 @@ class HomeController < ApplicationController
     begin
       approved_priority=Status.find_by(:name => "Duyệt").priority
       @category= Category.find(params[:id])
-      @articles =@category.articles.joins(:status).where('statuses.priority >= ?',approved_priority).order('statuses.priority DESC').order('created_at DESC').paginate(:page => params[:page], :per_page => 7).uniq
+      @articles =@category.articles.joins(:status).where('statuses.priority >= ?',approved_priority).order('statuses.priority DESC').paginate(:page => params[:page], :per_page => 7).uniq
 
       @popular_articles=Article.joins(:articles_categories,:status,:views_statistics).where(articles_categories:{category_id: @category.id}).where('statuses.priority >= ?',approved_priority).order('views_statistics.views DESC').limit(5).uniq
 
@@ -104,7 +104,7 @@ class HomeController < ApplicationController
    #create Blogs controller for blog page
    def blogs
      # begin
-       @blogs=Blog.all.where(:status => "Duyệt").order('created_at DESC').paginate(:page => params[:page], :per_page => 7).uniq
+       @blogs=Blog.all.where(:status => "Duyệt").order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
 
        @popular_blogs=Blog.joins(:views_statistics).where(:status => "Duyệt").order('views_statistics.views DESC').limit(5).uniq
        # @popular_blogs=Blog.where(:status => "Duyệt").limit(5)
@@ -213,9 +213,6 @@ class HomeController < ApplicationController
     # raise(@results.size.to_s)
     @results=Article.all.where("title LIKE ? || description LIKE ? || content LIKE ?","#{params[:search]}%","#{params[:search]}%","#{params[:search]}%").paginate(:page => params[:page], :per_page => 7).uniq
     # @results << Blog.all.where("title LIKE ? || description LIKE ? || content LIKE ?","#{params[:search]}%","#{params[:search]}%","#{params[:search]}%").paginate(:page => params[:page], :per_page => 7).uniq
-    @side_bar_1st=AdLocation.find_by("name = 'Sidebar 1st - Trang search'").ad_order
-    @side_bar_2nd=AdLocation.find_by("name = 'Sidebar 2nd - Trang search'").ad_order
-
     render 'home/search_result_page'
   end
 
@@ -230,6 +227,7 @@ class HomeController < ApplicationController
     @approved_blogs=@blogger.blogs.where(:blogger_id => @blogger.id).where(:status=> 'Duyệt').order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
     @unapproved_blogs=@blogger.blogs.where(:blogger_id => @blogger.id).where(:status=> 'Chờ duyệt').order(:created_at).paginate(:page => params[:page], :per_page => 7).uniq
 
+    @current_tab="TẤT CẢ"
   end
   def blogger_upload_article_form
     @blog= Blog.create
@@ -345,10 +343,6 @@ class HomeController < ApplicationController
   end
   def about
 
-  end
-
-  def advertise
-    @ad_price_list= AdPriceList.all
   end
 
   private

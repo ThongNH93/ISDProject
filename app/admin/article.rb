@@ -46,7 +46,7 @@ ActiveAdmin.register Article do
     end
   end
   before_filter :only => :index do
-    @per_page = 10
+    @per_page = 6
   end
 
   index title:"Danh sách bài viết" do

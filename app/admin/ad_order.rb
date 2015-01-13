@@ -9,8 +9,6 @@ ActiveAdmin.register AdOrder do
   filter :cost,  label: "Giá"
   filter :started_date, label: "Ngày order"
   filter :expired_date, label: "Ngày hết hạn"
-
-
   before_create do |order|
     # raise(order.image.to_s)
     order.ad_location.update(image: order.image)
@@ -34,7 +32,6 @@ ActiveAdmin.register AdOrder do
     order.ad_location.remove_image!
     order.ad_location.save!
   end
-
   form(:html => { :multipart => true }) do |f|
     f.inputs "Đơn đặt hàng" do
       f.input :ad_customer_id, label: "Khách hàng", :as => :select, :collection => AdCustomer.all, include_blank: false
@@ -80,9 +77,17 @@ ActiveAdmin.register AdOrder do
                    :warning
                  else
                    :ok
-                 end)
+    end)
+  end
+  actions
+end
+
+index title:"Danh sách đặt quảng cáo" do
+  selectable_column
+  id_column
+  column "Hình ảnh quảng cáo", :image do |order|
+        image_tag (order.image.url), width: 100
     end
-    actions
   end
   show title:"Thông tin order" do |order|
     panel "Thông tin order" do
