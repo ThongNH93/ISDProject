@@ -42,7 +42,7 @@
 
       <div class="collapse navbar-collapse ccr-nav-below-main">
         <ul class="nav navbar-nav">
-          <li><%= link_to "Tổng hợp", home_tong_hop_video_path %></li>
+          <li class="active"><%= link_to "Tổng hợp", home_tong_hop_video_path %></li>
           <% @categories.each do |category| %>
             <li><%= link_to category.name, home_videos_path(category.id) %></li>
           <% end %>
